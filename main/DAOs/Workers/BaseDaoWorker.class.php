@@ -19,6 +19,9 @@
 		const SUFFIX_QUERY	= '_query_';
 		const SUFFIX_RESULT	= '_result_';
 		
+		const USE_SLAVE = false;
+		const FORCE_MASTER = true;
+		
 		protected $dao = null;
 		
 		protected $className = null;
@@ -56,7 +59,7 @@
 		public function dropById($id)
 		{
 			$result =
-				$this->getDb()->queryCount(
+				$this->getDb(self::FORCE_MASTER)->queryCount(
 					OSQL::delete()->from($this->dao->getTable())->
 					where(Expression::eq($this->dao->getIdName(), $id))
 				);
@@ -69,7 +72,7 @@
 		public function dropByIds(array $ids)
 		{
 			$result =
-				$this->getDb()->queryCount(
+				$this->getDb(self::FORCE_MASTER)->queryCount(
 					OSQL::delete()->from($this->dao->getTable())->
 					where(Expression::in($this->dao->getIdName(), $ids))
 				);
@@ -167,9 +170,13 @@
 		/*
 		 * @return DB
 		 */
-		protected function getDb()
+		protected function getDb($useMaster = false)
 		{
-			return DBPool::getByDao($this->dao, $this->dao->isUseSlave());
+			return 
+				DBPool::getByDao(
+					$this->dao, 
+					$this->dao->isUseSlave() && !$useMaster
+				);
 		}
 		
 		protected function makeIdKey($id)

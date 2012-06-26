@@ -20,7 +20,7 @@
 		
 		private $pool = array();
 
-		private $slavePool = array();
+		private $slaveList = null;
 		
 		/**
 		 * @return DBPool
@@ -96,6 +96,14 @@
 		**/
 		public function getLink($name = null, $useSlave = false)
 		{
+			if (
+				$useSlave
+				&& $name
+				&& isset($this->slaveList[$name])
+				&& ($slaveLink = $this->slaveList[$name]->getSlaveLink())
+			)
+				return $slaveLink;
+
 			$link = null;
 			
 			// single-DB project
@@ -106,12 +114,8 @@
 					);
 				
 				$link = $this->default;
-			} elseif (isset($this->pool[$name])) {
-				if ($useSlave && isset($this->slavePool[$name]))
-					$link = $this->slavePool[$name];
-				else
+			} elseif (isset($this->pool[$name]))
 					$link = $this->pool[$name];
-			}
 			
 			if ($link) {
 				if (!$link->isConnected())
@@ -129,19 +133,19 @@
 		 * @throws WrongArgumentException
 		 * @return DBPool
 		**/
-		public function addSlaveLink($masterLinkName, DB $db)
+		public function addSlaveList($masterLinkName, SlaveDBList $slavePool)
 		{
 			if (!isset($this->pool[$masterLinkName]))
 				throw new MissingElementException (
 					"can't find master link with '{$masterLinkName}' name"
 				);
-
-			if (isset($this->slavePool[$masterLinkName]))
-				throw new WrongArgumentException(
-					'we can have only one slave for now'
+			
+			if (isset($this->slaveList[$masterLinkName]))
+				throw new WrongStateException(
+					"slave pool for {$masterLinkName} already exists"	
 				);
 
-			$this->slavePool[$masterLinkName] = $db;
+			$this->slaveList[$masterLinkName] = $slavePool;
 		}
 		
 		/**
