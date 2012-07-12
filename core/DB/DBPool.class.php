@@ -35,6 +35,11 @@
 		**/
 		public static function getByDao(GenericDAO $dao, $useSlave = false)
 		{
+			$master = self::me()->getLink($dao->getLinkName(), false);
+
+			if (!$useSlave || $master->inTransaction())
+				return $master;
+
 			return self::me()->getLink($dao->getLinkName(), $useSlave);
 		}
 		

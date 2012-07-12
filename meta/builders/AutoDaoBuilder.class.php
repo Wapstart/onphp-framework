@@ -38,6 +38,22 @@ abstract class Auto{$class->getName()}DAO extends {$parentName}
 
 EOT;
 
+			if (
+				$class->isFromSlave()
+				&& (
+				!$class->getParent()->getPattern()
+				instanceof InternalClassPattern
+				)
+			) {
+				$propertyValue = $class->isFromSlave() ? 'true' : 'false';
+
+				$out .= <<<EOT
+	protected \$useSlave = {$propertyValue};
+	
+
+EOT;
+			}
+			
 			$out .= self::buildPointers($class)."\n}\n";
 			
 			return $out.self::getHeel();

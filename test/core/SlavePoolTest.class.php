@@ -314,6 +314,10 @@
 						addLink('slave1', $this->getSlaveLink('slave1'))
 				);
 			
+			try {
+				Singleton::dropInstance('FakeDAO');
+			} catch (MissingElementException $e) {}
+
 			$dao = Singleton::getInstance('FakeDAO');
 			$worker = new FakeWorker($dao);
 			
