@@ -26,6 +26,7 @@
 		public function testCachePeer()
 		{
 			$redis = new RedisNoSQL('localhost', 6379);
+			$redis->setCampabilityMode(true);
 
 			$redis->set('some_key', 'some_value');
 			$result = $redis->get('some_key');

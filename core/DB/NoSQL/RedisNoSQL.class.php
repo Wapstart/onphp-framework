@@ -20,6 +20,7 @@
 		private $port			= null;
 		private $timeout		= null;
 		private $triedConnect	= false;
+		private $campabilityMode= false;
 		
 		/**
 		 * @param type $host
@@ -69,6 +70,20 @@
 			}
 			
 			return parent::clean();
+		}
+		
+		/**
+		 * Switch campability mode with old version of redis-server
+		 * 
+		 * @param bool $orly 
+		 * @return RedisNoSQL
+		 */
+			
+		public function setCampabilityMode($orly = true)
+		{
+			$this->campabilityMode = ($orly === true);
+			
+			return $this;
 		}
 		
 		public function isAlive()
@@ -182,7 +197,13 @@
 				case 'replace':
 				case 'add':
 					try {
-						return $this->redis->setEx($key, $expires, $value);
+						if ($this->campabilityMode) {
+							$result = $this->redis->set($key, $value);
+							$this->redis->expire($key, $expires);
+							return $result;
+						} else {
+							return $this->redis->setEx($key, $expires, $value);
+						}
 					} catch (RedisException $e) {
 						return $this->alive = false;
 					}
