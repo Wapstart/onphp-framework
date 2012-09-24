@@ -199,6 +199,28 @@
 				.$this->getCastedExpr($right, 'POINT');			
 		}
 		
+		public function quoteArray(array $valueList)
+		{
+			return self::quoteValue($this->convertToString($valueList));
+		}
+		
+		public function unquoteArray($rawData)
+		{
+			if (
+				preg_match('/^{(.+)}$/', $rawData, $matches)
+				&& isset($matches[1])
+			) {
+				$returnList = array();
+				
+				foreach (explode(',', $matches[1]) as $value)
+					$returnList[] = $this->unquoteArray($value);
+				
+				return $returnList;
+			}
+			
+			return $rawData;
+		}
+		
 		protected function makeSequenceName(DBColumn $column)
 		{
 			return $column->getTable()->getName().'_'.$column->getName();
@@ -210,6 +232,20 @@
 				($column->getTable() !== null)
 				&& ($column->getDefault() === null)
 			);
+		}
+		
+		private function convertToString($val)
+		{
+			if (is_array($val)) {
+				$stringList = array();
+				
+				foreach ($val as $subVal)
+					$stringList[] = $this->convertToString($subVal);
+				
+				return '{'.implode(',', $stringList).'}';
+			}
+			
+			return $val;
 		}
 	}
 ?>

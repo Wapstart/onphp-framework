@@ -382,64 +382,12 @@
 		
 		public function toValue(ProtoDAO $dao = null, $array, $prefix = null)
 		{
-			$raw = $array[$prefix.$this->columnName];
-			
-			if ($this->type == 'binary') {
-				return DBPool::getByDao($dao)->getDialect()->unquoteBinary($raw);
-			}
-			
-			if ($this->className == 'HttpUrl') {
-				return HttpUrl::create()->parse($raw);
-			}
-			
-			if (
-				!$this->identifier
-				&& $this->generic
-				&& $this->className
-			) {
-				return call_user_func(array($this->className, 'create'), $raw);
-			} elseif (
-				!$this->identifier
-				&& $this->className
-			) {
-				// BOVM: prevents segfault on >=php-5.2.5
-				Assert::classExists($this->className);
-				
-				if (!is_subclass_of($this->className, 'Enumeration')) {
-					$remoteDao = call_user_func(array($this->className, 'dao'));
-					
-					$joinPrefix = $remoteDao->getJoinPrefix(
-						$this->columnName,
-						$prefix
-					);
-					
-					$joined = (
-						($this->strategyId == FetchStrategy::JOIN)
-						|| isset($array[$joinPrefix.$remoteDao->getIdName()])
-					);
-					
-					if ($joined) {
-						return $remoteDao->makeObject($array, $joinPrefix);
-					} else {
-						// will be fetched later
-						// by AbstractProtoClass::fetchEncapsulants
-						$object = new $this->className;
-						$object->setId($raw);
-						
-						return $object;
-					}
-				} else {
-					return new $this->className($raw);
-				}
-			}
-			
-			// veeeeery "special" handling, by tradition.
-			// MySQL returns 0/1, others - t/f
-			if ($this->type == 'boolean') {
-				return (bool) strtr($raw, array('f' => null));
-			}
-			
-			return $raw;
+			return
+				$this->convertRawValue(
+					$dao,
+					$array[$prefix.$this->columnName],
+					$prefix
+				);
 		}
 		
 		public function isIdentifier()
@@ -508,6 +456,66 @@
 		{
 			// NOTE: enum here formless types
 			return ($this->type == 'enumeration');
+		}
+		
+		protected function convertRawValue(ProtoDAO $dao = null, $raw, $prefix)
+		{
+			if ($this->type == 'binary') {
+				return DBPool::getByDao($dao)->getDialect()->unquoteBinary($raw);
+			}
+			
+			if ($this->className == 'HttpUrl') {
+				return HttpUrl::create()->parse($raw);
+			}
+			
+			if (
+				!$this->identifier
+				&& $this->generic
+				&& $this->className
+			) {
+				return call_user_func(array($this->className, 'create'), $raw);
+			} elseif (
+				!$this->identifier
+				&& $this->className
+			) {
+				// BOVM: prevents segfault on >=php-5.2.5
+				Assert::classExists($this->className);
+				
+				if (!is_subclass_of($this->className, 'Enumeration')) {
+					$remoteDao = call_user_func(array($this->className, 'dao'));
+					
+					$joinPrefix = $remoteDao->getJoinPrefix(
+						$this->columnName,
+						$prefix
+					);
+					
+					$joined = (
+						($this->strategyId == FetchStrategy::JOIN)
+						|| isset($array[$joinPrefix.$remoteDao->getIdName()])
+					);
+					
+					if ($joined) {
+						return $remoteDao->makeObject($array, $joinPrefix);
+					} else {
+						// will be fetched later
+						// by AbstractProtoClass::fetchEncapsulants
+						$object = new $this->className;
+						$object->setId($raw);
+						
+						return $object;
+					}
+				} else {
+					return new $this->className($raw);
+				}
+			}
+			
+			// veeeeery "special" handling, by tradition.
+			// MySQL returns 0/1, others - t/f
+			if ($this->type == 'boolean') {
+				return (bool) strtr($raw, array('f' => null));
+			}
+			
+			return $raw;
 		}
 	}
 ?>

@@ -359,34 +359,38 @@
 			
 			$inner = false;
 			
-			if ($this->getType() instanceof ObjectType) {
-				$className = $this->getType()->getClassName();
-				
-				if (!$this->getType()->isGeneric()) {
-					$class = $this->getType()->getClass();
-					$pattern = $class->getPattern();
-					
-					if ($pattern instanceof InternalClassPattern)
-						$className = $holder->getName();
-					
-					if (
-						(
-							($pattern instanceof InternalClassPattern)
-							|| ($pattern instanceof ValueObjectPattern)
-						) && (
-							$className <> $holder->getName()
-						)
-					) {
-						$inner = true;
+			if ($this->getType() instanceof ArrayType)
+				$propertyClassName = 'LightMetaPropertySet';
+			else {
+				if ($this->getType() instanceof ObjectType) {
+					$className = $this->getType()->getClassName();
+
+					if (!$this->getType()->isGeneric()) {
+						$class = $this->getType()->getClass();
+						$pattern = $class->getPattern();
+
+						if ($pattern instanceof InternalClassPattern)
+							$className = $holder->getName();
+
+						if (
+							(
+								($pattern instanceof InternalClassPattern)
+								|| ($pattern instanceof ValueObjectPattern)
+							) && (
+								$className <> $holder->getName()
+							)
+						) {
+							$inner = true;
+						}
 					}
 				}
+
+				$propertyClassName = (
+					$inner
+						? 'InnerMetaProperty'
+						: 'LightMetaProperty'
+				);
 			}
-			
-			$propertyClassName = (
-				$inner
-					? 'InnerMetaProperty'
-					: 'LightMetaProperty'
-			);
 			
 			if (
 				($this->getType() instanceof IntegerType)

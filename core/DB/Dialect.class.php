@@ -159,6 +159,16 @@
 			throw new UnimplementedFeatureException();
 		}
 		
+		protected function quoteArray(array $valueList)
+		{
+			throw new UnimplementedFeatureException();
+		}
+		
+		protected function unquoteArray($rawData)
+		{
+			throw new UnimplementedFeatureException();
+		}
+		
 		protected function quoteExpression($expression)
 		{
 			return $this->toSuitableString($expression, 'quoteValue');

@@ -26,7 +26,7 @@
 		
 		public function toColumnType()
 		{
-			return null;
+			return 'DataType::create(DataType::TEXT)';
 		}
 		
 		public function isMeasurable()
