@@ -213,7 +213,7 @@
 				$returnList = array();
 				
 				foreach (explode(',', $matches[1]) as $value)
-					$returnList[] = $this->unquoteArray($value);
+					$returnList[] = $this->unquoteArray(trim($value, '"'));
 				
 				return $returnList;
 			}
@@ -240,7 +240,7 @@
 				$stringList = array();
 				
 				foreach ($val as $subVal)
-					$stringList[] = $this->convertToString($subVal);
+					$stringList[] = '"'.$this->convertToString($subVal).'"';
 				
 				return '{'.implode(',', $stringList).'}';
 			}

@@ -1,8 +1,19 @@
 <?php
+/***************************************************************************
+ *   Copyright (C) 2012 by Alexander A. Zaytsev                            *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU Lesser General Public License as        *
+ *   published by the Free Software Foundation; either version 3 of the    *
+ *   License, or (at your option) any later version.                       *
+ *                                                                         *
+ ***************************************************************************/
+
 	/**
-	 * @author Alexander Zaytsev <a.zaytsev@co.wapstart.ru>
-	 * @copyright Copyright (c) 2012, Wapstart
-	 */
+	 * @see LightMetaProperty
+	 * 
+	 * @ingroup Helpers
+	**/
 	final class LightMetaPropertySet extends LightMetaProperty
 	{
 		public function toValue(ProtoDAO $dao = null, $array, $prefix = null)

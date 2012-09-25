@@ -20,14 +20,9 @@
 		/**
 		 * @return DBArray
 		**/
-		public static function create(array $value)
+		public static function create($value)
 		{
 			return new self($value);
-		}
-		
-		public function __construct(array $value)
-		{
-			parent::__construct($value);
 		}
 		
 		public function toDialectString(Dialect $dialect)

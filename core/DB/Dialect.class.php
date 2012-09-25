@@ -159,12 +159,12 @@
 			throw new UnimplementedFeatureException();
 		}
 		
-		protected function quoteArray(array $valueList)
+		public function quoteArray(array $valueList)
 		{
 			throw new UnimplementedFeatureException();
 		}
 		
-		protected function unquoteArray($rawData)
+		public function unquoteArray($rawData)
 		{
 			throw new UnimplementedFeatureException();
 		}
