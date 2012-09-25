@@ -88,26 +88,18 @@
 			$sets = array();
 			
 			foreach ($this->fields as $var => $val) {
-				if ($val instanceof DialectString)
+				if ($val instanceof DialectString) {
 					$sets[] =
 						$dialect->quoteField($var)
 						.' = ('
 						.$val->toDialectString($dialect)
 						.')';
-				elseif ($val === null)
-					$sets[] = $dialect->quoteField($var).' = '
-						.$dialect->literalToString(Dialect::LITERAL_NULL);
-				elseif (true === $val)
-					$sets[] = $dialect->quoteField($var).' = '
-						.$dialect->literalToString(Dialect::LITERAL_TRUE);
-				elseif (false === $val)
-					$sets[] = $dialect->quoteField($var).' = '
-						.$dialect->literalToString(Dialect::LITERAL_FALSE);
-				else
+				} else {
 					$sets[] =
 						$dialect->quoteField($var)
 						.' = '
-						.$dialect->quoteValue($val);
+						.$this->quoteQueryValue($val, $dialect);
+				}
 			}
 			
 			return

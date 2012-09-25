@@ -125,5 +125,23 @@
 			
 			return $query;
 		}
+		
+		protected function quoteQueryValue($val, $dialect)
+		{
+			if ($val instanceof DialectString)
+				$quotedValue = $val->toDialectString($dialect);
+			elseif (null === $val)
+				$quotedValue = $dialect->literalToString(Dialect::LITERAL_NULL);
+			elseif (true === $val)
+				$quotedValue = $dialect->literalToString(Dialect::LITERAL_TRUE);
+			elseif (false === $val)
+				$quotedValue = $dialect->literalToString(Dialect::LITERAL_FALSE);
+			elseif (is_array($val))
+				$quotedValue = $dialect->quoteArray($val);
+			else
+				$quotedValue = $dialect->quoteValue($val);
+			
+			return $quotedValue;
+		}
 	}
 ?>

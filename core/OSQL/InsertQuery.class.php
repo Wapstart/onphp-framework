@@ -86,17 +86,7 @@
 			
 			foreach ($this->fields as $var => $val) {
 				$fields[] = $dialect->quoteField($var);
-				
-				if ($val === null)
-					$values[] = $dialect->literalToString(Dialect::LITERAL_NULL);
-				elseif (true === $val)
-					$values[] = $dialect->literalToString(Dialect::LITERAL_TRUE);
-				elseif (false === $val)
-					$values[] = $dialect->literalToString(Dialect::LITERAL_FALSE);
-				elseif ($val instanceof DialectString)
-					$values[] = $val->toDialectString($dialect);
-				else
-					$values[] = $dialect->quoteValue($val);
+				$values[] = $this->quoteQueryValue($val, $dialect);
 			}
 			
 			if (!$fields || !$values)
