@@ -213,12 +213,12 @@
 				$returnList = array();
 				
 				foreach (explode(',', $matches[1]) as $value)
-					$returnList[] = $this->unquoteArray(trim($value, '"'));
+					$returnList[] = $this->unquoteArray($value);
 				
 				return $returnList;
 			}
 			
-			return $rawData;
+			return trim($rawData, '"');
 		}
 		
 		protected function makeSequenceName(DBColumn $column)
@@ -240,12 +240,12 @@
 				$stringList = array();
 				
 				foreach ($val as $subVal)
-					$stringList[] = '"'.$this->convertToString($subVal).'"';
+					$stringList[] = $this->convertToString($subVal);
 				
 				return '{'.implode(',', $stringList).'}';
 			}
 			
-			return $val;
+			return '"'.$val.'"';
 		}
 	}
 ?>

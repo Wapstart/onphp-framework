@@ -393,7 +393,10 @@
 				return $atom;
 			}
 			
-			return new DBValue($atom);
+			return
+				is_array($atom)
+					? new DBArray($atom)
+					: new DBValue($atom);
 		}
 	}
 ?>

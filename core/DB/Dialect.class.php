@@ -171,7 +171,13 @@
 		
 		protected function quoteExpression($expression)
 		{
-			return $this->toSuitableString($expression, 'quoteValue');
+			return
+				$this->toSuitableString(
+					$expression,
+					is_array($expression)
+						? 'quoteArray'
+						: 'quoteValue'
+				);
 		}
 		
 		protected function getCastedExpr($expression, $type)
