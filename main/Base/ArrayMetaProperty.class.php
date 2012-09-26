@@ -10,11 +10,11 @@
  ***************************************************************************/
 
 	/**
-	 * @see LightMetaProperty
+	 * @see ArrayMetaProperty
 	 * 
 	 * @ingroup Helpers
 	**/
-	final class LightMetaPropertySet extends LightMetaProperty
+	final class ArrayMetaProperty extends LightMetaProperty
 	{
 		public function toValue(ProtoDAO $dao = null, $array, $prefix = null)
 		{

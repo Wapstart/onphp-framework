@@ -360,7 +360,7 @@
 			$inner = false;
 			
 			if ($this->getType() instanceof ArrayType)
-				$propertyClassName = 'LightMetaPropertySet';
+				$propertyClassName = 'ArrayMetaProperty';
 			else {
 				if ($this->getType() instanceof ObjectType) {
 					$className = $this->getType()->getClassName();
