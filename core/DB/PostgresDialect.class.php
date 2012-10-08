@@ -207,7 +207,7 @@
 		public function unquoteArray($rawData)
 		{
 			if (
-				preg_match('/^{(.+)}$/', $rawData, $matches)
+				preg_match('/^{(.*)}$/', $rawData, $matches)
 				&& isset($matches[1])
 			) {
 				$returnList = array();
