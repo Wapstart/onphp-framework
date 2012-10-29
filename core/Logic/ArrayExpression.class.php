@@ -108,5 +108,13 @@
 		{
 			return new BinaryExpression($field, $value, self::CONCAT);
 		}
+		
+		/**
+		 * @return ArrayAccessExpression
+		**/
+		public static function access(/* ... */)
+		{
+			return new ArrayAccessExpression(func_get_args());
+		}
 	}
 ?>
