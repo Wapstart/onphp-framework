@@ -206,19 +206,25 @@
 		
 		public function unquoteArray($rawData)
 		{
-			if (
-				preg_match('/^{(.*)}$/', $rawData, $matches)
-				&& isset($matches[1])
-			) {
-				$returnList = array();
-				
-				foreach (explode(',', $matches[1]) as $value)
-					$returnList[] = $this->unquoteArray($value);
-				
-				return $returnList;
-			}
+			$result =
+				preg_replace_callback(
+					'/({*)("[^"]*"|[^},{]*)(}*)/',
+					function($matches) {
+						return
+							str_repeat('array(', strlen($matches[1]))
+							.$matches[2]
+							.str_repeat(')', strlen($matches[3]));
+					},
+					$rawData
+				);
 			
-			return trim($rawData, '"');
+			if (!$result)
+				return null;
+			
+			$unquotedArray = array();
+			eval('$unquotedArray = '.$result.';');
+			
+			return $unquotedArray;
 		}
 		
 		protected function makeSequenceName(DBColumn $column)
