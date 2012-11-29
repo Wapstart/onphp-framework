@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Geometry
 	**/
-	final class Point implements Stringable, DialectString
+	class Point implements Stringable, DialectString
 	{
 		const X = 0;
 		const Y = 1;
@@ -29,9 +29,9 @@
 		public static function create(/* ... */)
 		{
 			if (func_num_args() == 1)
-				return new self(func_get_arg(0));
+				return new static(func_get_arg(0));
 			
-			return new self(func_get_args());
+			return new static(func_get_args());
 		}
 
 		public function __construct(/* ... */)

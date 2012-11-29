@@ -14,6 +14,8 @@
 	**/
 	abstract class AbstractProtoClass extends Singleton
 	{
+		protected $skipPropertyList = array();
+		
 		private $depth = 0;
 		private $storage = array();
 		private $skipList = array();
@@ -214,10 +216,13 @@
 			InsertOrUpdateQuery $query, Prototyped $object
 		)
 		{
-			foreach ($this->getPropertyList() as $property) {
-				$property->fillQuery($query, $object);
-			}
+			$isUpdate = $query instanceof UpdateQuery;
 			
+			foreach ($this->getPropertyList() as $name => $property) {
+				if (!$isUpdate || (!in_array($name, $this->skipPropertyList)))
+					$property->fillQuery($query, $object);
+			}
+
 			return $query;
 		}
 		

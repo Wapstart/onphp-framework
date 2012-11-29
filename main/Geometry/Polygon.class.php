@@ -85,8 +85,6 @@
 			
 			$this->vertexList[] = $point;
 			
-			$this->normalizeVertextList();
-			
 			return $this;
 		}
 		
