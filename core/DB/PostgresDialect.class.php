@@ -258,10 +258,17 @@
 				foreach ($val as $subVal)
 					$stringList[] = $this->convertToString($subVal, $delim);
 				
-				return '{'.implode($delim, $stringList).'}';
-			}
+				$quotedValue = '{'.implode($delim, $stringList).'}';
+			} elseif (null === $val)
+				$quotedValue = $this->literalToString(Dialect::LITERAL_NULL);
+			elseif (true === $val)
+				$quotedValue = $this->literalToString(Dialect::LITERAL_TRUE);
+			elseif (false === $val)
+				$quotedValue = $this->literalToString(Dialect::LITERAL_FALSE);
+			else
+				$quotedValue = '"'.addslashes($val).'"';
 			
-			return '"'.addslashes($val).'"';
+			return $quotedValue;
 		}
 	}
 ?>

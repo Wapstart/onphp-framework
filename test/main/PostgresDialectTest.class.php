@@ -78,6 +78,17 @@
 				),
 				'\'{{"1";"2"};{"3";"4"}}\''
 			);
+			
+			$this->assertEquals(
+				PostgresDialect::me()->quoteArray(
+					array(
+						array(true, null),
+						array(3, false)
+					)
+				),
+				'\'{{'.Dialect::LITERAL_TRUE.','.Dialect::LITERAL_NULL.'},'
+					.'{"3",'.Dialect::LITERAL_FALSE.'}}\''
+			);
 		}
 		
 		public function testUnquoteArray()
