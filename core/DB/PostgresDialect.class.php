@@ -199,27 +199,37 @@
 				.$this->getCastedExpr($right, 'POINT');			
 		}
 		
-		public function quoteArray(array $valueList)
+		public function quoteArray(array $valueList, $delim = ',')
 		{
-			return self::quoteValue($this->convertToString($valueList));
+			return self::quoteValue($this->convertToString($valueList, $delim));
 		}
 		
-		public function unquoteArray($rawData)
+		public function unquoteArray($rawData, $delim = ',')
 		{
+			if (!$rawData || $rawData == '{}')
+				return array();
+			
 			$result =
 				preg_replace_callback(
-					'/({*)("[^"]*"|[^},{]*)(}*)/',
+					'/({*)(?:"((?:\\\\"|[^"])*)"|([^}'.$delim.'{]+))(}*)('.$delim.')?/',
 					function($matches) {
+						$value =
+							!empty($matches[2])
+								? str_replace('\"', '"', $matches[2])
+								: $matches[3];
+						
 						return
 							str_repeat('array(', strlen($matches[1]))
-							.$matches[2]
-							.str_repeat(')', strlen($matches[3]));
+							.'\''.str_replace('\'', '\\\'', $value).'\''
+							.str_repeat(')', strlen($matches[4]))
+							.(
+								empty($matches[5])
+									? ''
+									: ', '
+							);
 					},
 					$rawData
 				);
-			
-			if (!$result)
-				return null;
 			
 			$unquotedArray = array();
 			eval('$unquotedArray = '.$result.';');
@@ -240,18 +250,18 @@
 			);
 		}
 		
-		private function convertToString($val)
+		private function convertToString($val, $delim = ',')
 		{
 			if (is_array($val)) {
 				$stringList = array();
 				
 				foreach ($val as $subVal)
-					$stringList[] = $this->convertToString($subVal);
+					$stringList[] = $this->convertToString($subVal, $delim);
 				
-				return '{'.implode(',', $stringList).'}';
+				return '{'.implode($delim, $stringList).'}';
 			}
 			
-			return '"'.$val.'"';
+			return '"'.addslashes($val).'"';
 		}
 	}
 ?>
