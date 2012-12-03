@@ -1,3 +1,7 @@
+2012-12-03 Alexander A. Zaytsev
+
+	* core/OSQL/SQLCase.class.php: implementation of SQL CASE expression added.
+
 2012-11-18  Nikita V. Konstantinov
 
 	* meta/types/ObjectType.class.php:
