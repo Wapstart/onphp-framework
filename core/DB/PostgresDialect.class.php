@@ -206,35 +206,37 @@
 		
 		public function unquoteArray($rawData, $delim = ',')
 		{
-			if (!$rawData || $rawData == '{}')
-				return array();
+			if ($rawData && $rawData != '{}') {
+				$unquotedArray =
+					json_decode(
+						preg_replace_callback(
+							'/({*)(?:("(?:[^"\\\\]|\\\\.)*")|([^}'.$delim.'{]+))(}*)('.$delim.')?/',
+							function($matches) {
+								return
+									str_repeat('[', strlen($matches[1]))
+									.($matches[2] ?: '"'.$matches[3].'"')
+									.str_repeat(']', strlen($matches[4]))
+									.(
+										empty($matches[5])
+											? ''
+											: ','
+									);
+							},
+							$rawData
+						)
+					);
+				
+				if (!$unquotedArray) {
+					throw new WrongArgumentException(
+						'json_decode() failed with code: '.json_last_error().'; '
+						.'Raw data value was '.$rawData
+					);
+				}
+				
+				return $unquotedArray;
+			}
 			
-			$result =
-				preg_replace_callback(
-					'/({*)(?:"((?:\\\\"|[^"])*)"|([^}'.$delim.'{]+))(}*)('.$delim.')?/',
-					function($matches) {
-						$value =
-							!empty($matches[2])
-								? str_replace('\"', '"', $matches[2])
-								: $matches[3];
-						
-						return
-							str_repeat('array(', strlen($matches[1]))
-							.'\''.str_replace('\'', '\\\'', $value).'\''
-							.str_repeat(')', strlen($matches[4]))
-							.(
-								empty($matches[5])
-									? ''
-									: ', '
-							);
-					},
-					$rawData
-				);
-			
-			$unquotedArray = array();
-			eval('$unquotedArray = '.$result.';');
-			
-			return $unquotedArray;
+			return array();
 		}
 		
 		protected function makeSequenceName(DBColumn $column)

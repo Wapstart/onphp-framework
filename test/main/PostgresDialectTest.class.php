@@ -45,10 +45,10 @@
 			$this->assertEquals(
 				PostgresDialect::me()->quoteArray(
 					array(
-						'"some" string with $var'
+						'"some" string\\ with $var'
 					)
 				),
-				'\'{"\\\\"some\\\\" string with $var"}\''
+				'\'{"\\\\"some\\\\" string\\\\\\\\ with $var"}\''
 			);
 			
 			$this->assertEquals(
@@ -95,10 +95,10 @@
 		{
 			$this->assertEquals(
 				PostgresDialect::me()->unquoteArray(
-					'{"string with $var","\\"quoted\\" string"}'
+					'{"string\\\\ with $var","\\"quoted\\" string"}'
 				),
 				array(
-					'string with $var',
+					'string\ with $var',
 					'"quoted" string'
 				)
 			);
