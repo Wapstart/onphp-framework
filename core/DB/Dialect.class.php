@@ -159,7 +159,7 @@
 			throw new UnimplementedFeatureException();
 		}
 		
-		public function quoteArray(array $valueList)
+		public function quoteArray(array $valueList, $delim = ',')
 		{
 			throw new UnimplementedFeatureException();
 		}

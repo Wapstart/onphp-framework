@@ -119,5 +119,19 @@
 			
 			return $string;	
 		}
+		
+		public function quoteArray(array $valueList, $delim = ',')
+		{
+			$stringList = array();
+			
+			foreach ($valueList as $value) {
+				$stringList[] =
+					is_array($value)
+						? $this->quoteArray($value, $delim)
+						: $value;
+			}
+			
+			return '{'.implode($delim, $stringList).'}';
+		}
 	}
 ?>
