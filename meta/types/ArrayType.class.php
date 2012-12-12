@@ -36,7 +36,7 @@
 		
 		public function setDefault($default)
 		{
-			throw new UnsupportedMethodException(
+			throw new UnimplementedFeatureException(
 				'Arrays can\'t have default values atm'
 			);
 		}
