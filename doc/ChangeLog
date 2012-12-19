@@ -2,6 +2,12 @@
 
 	* core/OSQL/SQLCase.class.php: implementation of SQL CASE expression added.
 
+2012-12-06  Evgeny V. Kokovikhin
+	* main/DAOs/GenericDAO.class.php 
+		meta/builders/AutoDaoBuilder.class.php 
+		meta/builders/BaseBuilder.class.php:
+			dbLink became a property
+
 2012-11-18  Nikita V. Konstantinov
 
 	* meta/types/ObjectType.class.php:
