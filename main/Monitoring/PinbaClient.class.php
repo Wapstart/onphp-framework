@@ -60,7 +60,7 @@
 		public function timerStart($name, array $tags, array $data = array())
 		{
 			if (array_key_exists($name, $this->timers))
-				throw new WrongArgumentException('a timer with the same name allready exists');
+				throw new WrongArgumentException('the timer with name '.$name.' allready exists');
 			
 			if ($this->isTreeLogEnabled()) {
 				if (empty($this->firstUniq)) {
