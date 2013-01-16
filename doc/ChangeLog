@@ -2,6 +2,10 @@
 
 	* core/OSQL/SQLCase.class.php: implementation of SQL CASE expression added.
 
+2013-01-09 Evgeny V. Kokovikhin
+	* test/main/Utils/AMQP/AMQPPeclTest.class.php:
+		test fixed
+
 2012-12-06  Evgeny V. Kokovikhin
 	* main/DAOs/GenericDAO.class.php 
 		meta/builders/AutoDaoBuilder.class.php 

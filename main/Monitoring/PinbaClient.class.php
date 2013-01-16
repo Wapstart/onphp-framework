@@ -22,6 +22,7 @@
 		private $hostName = "localhost";
 		private $firstUniq = null;
 		private $idShift = 1;
+		private $suffix = null;
 		
 		
 		/**
@@ -59,6 +60,8 @@
 		
 		public function timerStart($name, array $tags, array $data = array())
 		{
+			$name .= $this->suffix;
+
 			if (array_key_exists($name, $this->timers))
 				throw new WrongArgumentException('the timer with name '.$name.' allready exists');
 			
@@ -89,27 +92,31 @@
 		
 		public function timerStop($name)
 		{
-			 if ($this->isTreeLogEnabled())
+			if ($this->isTreeLogEnabled())
 				array_pop($this->queue);
 			 
-			 if (!array_key_exists($name, $this->timers))
+			$name .= $this->suffix;
+
+			if (!array_key_exists($name, $this->timers))
 				throw new WrongArgumentException('have no any timer with name '.$name);
 			 
-			  pinba_timer_stop($this->timers[$name]);
+			pinba_timer_stop($this->timers[$name]);
 			  
-			  unset($this->timers[$name]);
+			unset($this->timers[$name]);
 			  
-			  return $this;
+			return $this;
 		}
 		
 		public function isTimerExists($name)
 		{
-			return array_key_exists($name, $this->timers);
+			return array_key_exists($name.$this->suffix, $this->timers);
 		}
 		
 		public function timerDelete($name)
 		{
-			 if (!array_key_exists($name, $this->timers))
+			$name .= $this->suffix;
+
+			if (!array_key_exists($name, $this->timers))
 				throw new WrongArgumentException('have no any timer with name '.$name);
 			
 			pinba_timer_delete($this->timers[$name]);
@@ -121,6 +128,8 @@
 		
 		public function timerGetInfo($name)
 		{
+			$name .= $this->suffix;
+
 			if (!array_key_exists($name, $this->timers))
 				throw new WrongArgumentException('have no any timer with name '.$name);
 			
@@ -141,7 +150,26 @@
 			
 			return $this;
 		}
-		
+
+		public function setSuffix($suffix)
+		{
+			$this->suffix = $suffix;
+
+			return $this;
+		}
+
+		public function getSuffix()
+		{
+			return $this->suffix;
+		}
+
+		public function dropSuffix()
+		{
+			$this->suffix = null;
+
+			return $this;
+		}
+
 		/**
 		 * NOTE: You don't need to flush data manually. Pinba do it for you.
 		 */
