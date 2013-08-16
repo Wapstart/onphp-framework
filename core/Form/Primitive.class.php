@@ -106,7 +106,15 @@
 		{
 			return new PrimitiveClass($name);
 		}
-		
+
+		/**
+		 * @return PrimitiveClassByMethod
+		 **/
+		public static function classByMethod($name)
+		{
+			return new PrimitiveClassByMethod($name);
+		}
+
 		/**
 		 * @return PrimitiveEnumeration
 		**/
