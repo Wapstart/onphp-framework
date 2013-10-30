@@ -78,19 +78,29 @@
 
 		public function get($key)
 		{
+			$deadPeerCount = 0;
+
+			$result = null;
+
 			foreach ($this->list as $val) {
 				/* @var $val CachePeer */
 				$result = $val->get($key);
 				
 				if (
 					$this->checkGetResult($result)
-					|| $val->isAlive()
+					&& $val->isAlive()
 				) {
 					return $result;
 				}
+
+				if (!$val->isAlive())
+					++$deadPeerCount;
 			}
-			
-			throw new RuntimeException('All peers are dead');
+
+			if ($deadPeerCount == count($this->list))
+				throw new RuntimeException('All peers are dead');
+
+			return $result;
 		}
 
 		public function append($key, $data)
