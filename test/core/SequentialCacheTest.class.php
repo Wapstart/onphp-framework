@@ -8,6 +8,64 @@
  *   License, or (at your option) any later version.                        *
  *                                                                          *
  ****************************************************************************/
+	class SwordfishStub extends CachePeer
+	{
+		protected $alive = true;
+		private $value = null;
+
+		public function delete($key)
+		{
+			// TODO: Implement delete() method.
+		}
+
+		public function increment($key, $value)
+		{
+			// TODO: Implement increment() method.
+		}
+
+		public function decrement($key, $value)
+		{
+			// TODO: Implement decrement() method.
+		}
+
+		protected function store(
+			$action, $key, $value, $expires = Cache::EXPIRES_MEDIUM
+		)
+		{
+			// TODO: Implement store() method.
+		}
+
+		public function append($key, $data)
+		{
+			// TODO: Implement append() method.
+		}
+
+
+		public static function create()
+		{
+			return new self;
+		}
+
+		public function setValue($value)
+		{
+			$this->value = $value;
+
+			return $this;
+		}
+
+		public function setAlive($isAlive)
+		{
+			$this->alive = $isAlive;
+
+			return $this;
+		}
+
+		public function get($key)
+		{
+			return $this->value;
+		}
+	}
+
 
 	final class SequentialCacheTest extends TestCase
 	{
@@ -76,5 +134,26 @@
 			$cache = new SequentialCache($dead1, array($dead2));
 
 			$result = $cache->get("some_key");	//will throw RuntimeException
+		}
+
+		public function testSwordfish()
+		{
+			$master = SwordfishStub::create();
+			$slave1 = SwordfishStub::create()->setAlive(false);
+			$slave2 = SwordfishStub::create();
+
+			$cache = new SequentialCache($master, array($slave1, $slave2));
+
+			$result = $cache->get('key');
+
+			$this->assertNull($result);
+			$master->setAlive(false);
+			$slave2->setAlive(false);
+
+			try {
+				$cache->get('key');
+
+				$this->fail('All peers are dead exception expected');
+			} catch (RuntimeException $e) { /* ^_^ */}
 		}
 	}
