@@ -99,7 +99,7 @@
 					
 					$rowString .=
 						(
-							$rowString
+							!is_null($rowString)
 								? $this->separator
 								: null
 						)
