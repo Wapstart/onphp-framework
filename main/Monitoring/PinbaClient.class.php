@@ -63,7 +63,7 @@
 			$name .= $this->suffix;
 
 			if (array_key_exists($name, $this->timers))
-				throw new WrongArgumentException('the timer with name '.$name.' allready exists');
+				throw new WrongArgumentException('the timer with name '.$name.' already exists');
 			
 			if ($this->isTreeLogEnabled()) {
 				if (empty($this->firstUniq)) {
@@ -148,6 +148,30 @@
 			$this->hostName = $name;
 			pinba_hostname_set($name);
 			
+			return $this;
+		}
+
+		public function mergeTags($name, array $tags)
+		{
+			$name .= $this->suffix;
+
+			if (!array_key_exists($name, $this->timers))
+				throw new WrongArgumentException();
+
+			pinba_timer_tags_merge($this->timers[$name], $tags);
+
+			return $this;
+		}
+
+		public function replaceTags($name, array $tags)
+		{
+			$name .= $this->suffix;
+
+			if (!array_key_exists($name, $this->timers))
+				throw new WrongArgumentException();
+
+			pinba_timer_tags_replace($this->timers[$name], $tags);
+
 			return $this;
 		}
 
