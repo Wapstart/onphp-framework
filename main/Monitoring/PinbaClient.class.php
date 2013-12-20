@@ -60,6 +60,9 @@
 		
 		public function timerStart($name, array $tags, array $data = array())
 		{
+			if (!self::$enabled)
+				return $this;
+
 			$name .= $this->suffix;
 
 			if (array_key_exists($name, $this->timers))
@@ -92,6 +95,9 @@
 		
 		public function timerStop($name)
 		{
+			if (!self::$enabled)
+				return $this;
+
 			if ($this->isTreeLogEnabled())
 				array_pop($this->queue);
 			 
@@ -114,6 +120,9 @@
 		
 		public function timerDelete($name)
 		{
+			if (!self::$enabled)
+				return $this;
+
 			$name .= $this->suffix;
 
 			if (!array_key_exists($name, $this->timers))
@@ -138,6 +147,9 @@
 		
 		public function setScriptName($name)
 		{
+			if (!self::$enabled)
+				return $this;
+
 			pinba_script_name_set($name);
 			
 			return $this;
@@ -145,6 +157,9 @@
 		
 		public function setHostName($name)
 		{
+			if (!self::$enabled)
+				return $this;
+
 			$this->hostName = $name;
 			pinba_hostname_set($name);
 			
@@ -153,6 +168,9 @@
 
 		public function mergeTags($name, array $tags)
 		{
+			if (!self::$enabled)
+				return $this;
+
 			$name .= $this->suffix;
 
 			if (!array_key_exists($name, $this->timers))
@@ -165,6 +183,9 @@
 
 		public function replaceTags($name, array $tags)
 		{
+			if (!self::$enabled)
+				return $this;
+
 			$name .= $this->suffix;
 
 			if (!array_key_exists($name, $this->timers))
@@ -199,6 +220,9 @@
 		 */
 		public function flush()
 		{
+			if (!self::$enabled)
+				return $this;
+
 			pinba_flush();
 		}
 	}
