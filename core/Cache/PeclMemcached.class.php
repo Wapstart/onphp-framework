@@ -199,6 +199,11 @@
 		{
 			return $this->requestTimeout;
 		}
+
+		public function getHost()
+		{
+			return $this->host;
+		}
 		
 		protected function ensureTriedToConnect()
 		{
