@@ -176,11 +176,8 @@
 			
 			return $result;
 		}
-		
-		/**
-		 * @return CascadeCache
-		**/
-		private function cacheLocal(
+
+		protected function cacheLocal(
 			$key, $value, $expires = Cache::EXPIRES_MEDIUM
 		)
 		{
