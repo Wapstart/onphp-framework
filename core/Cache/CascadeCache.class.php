@@ -15,13 +15,13 @@
 		const NEGATIVE_CACHE_ON		= true;
 		const NEGATIVE_CACHE_OFF	= false;
 		
-		private $localPeer		= null;
-		private $remotePeer		= null;
-		private $className		= null;
-		private $cacheStrategy	= null;
+		protected $localPeer		= null;
+		protected $remotePeer		= null;
+		protected $className		= null;
+		protected $cacheStrategy	= null;
 		
 		// map class -> local ttl
-		private $localTtlMap	= array();
+		protected $localTtlMap	= array();
 		
 		/**
 		 * @return CascadeCache
