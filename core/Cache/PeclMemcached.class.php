@@ -243,20 +243,14 @@
 		protected function connect()
 		{
 			$this->instance = new Memcache();
-			
+
 			try {
-				
-				try {
-					$this->instance->pconnect($this->host, $this->port, $this->connectTimeout);
-				} catch (BaseException $e) {
-					$this->instance->connect($this->host, $this->port, $this->connectTimeout);
-				}
-				
-				$this->alive = true;
-				
+				$this->instance->connect($this->host, $this->port, $this->connectTimeout);
 			} catch (BaseException $e) {
-				// bad luck
+				return false;
 			}
+
+			$this->alive = true;
 		}
 		
 		private function doGet($index, &$cas = self::CAS_EMPTY)
