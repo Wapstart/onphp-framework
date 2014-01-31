@@ -19,35 +19,39 @@
 	**/
 	class PeclMemcached extends CachePeer
 	{
-		const DEFAULT_PORT		= 11211;
-		const DEFAULT_HOST		= '127.0.0.1';
-		const DEFAULT_TIMEOUT	= 1;
+		const DEFAULT_PORT						= 11211;
+		const DEFAULT_HOST						= '127.0.0.1';
+		const DEFAULT_TIMEOUT					= 1;
+
+		const CAS_EMPTY							= 'I_AM_EMPTY';
+
+		const CONNECTION_STRATEGY_COMMON		= 11;
+		const CONNECTION_STRATEGY_PERSISTENT 	= 12;
 		
-		const CAS_EMPTY			= 'I_AM_EMPTY';
-		
-		protected $host			= null;
-		protected $port			= null;
-		private $instance		= null;
-		private $requestTimeout = null;
-		private $connectTimeout = null;
-		private $triedConnect	= false;
+		protected $host				= null;
+		protected $port				= null;
+		private $instance			= null;
+		private $requestTimeout 	= null;
+		private $connectTimeout 	= null;
+		private $triedConnect		= false;
+		private $connectionStrategy = self::CONNECTION_STRATEGY_COMMON;
 		
 		/**
 		 * @return PeclMemcached
 		**/
 		public static function create(
-			$host = Memcached::DEFAULT_HOST,
-			$port = Memcached::DEFAULT_PORT,
-			$connectTimeout = PeclMemcached::DEFAULT_TIMEOUT
+			$host = self::DEFAULT_HOST,
+			$port = self::DEFAULT_PORT,
+			$connectTimeout = self::DEFAULT_TIMEOUT
 		)
 		{
 			return new self($host, $port, $connectTimeout);
 		}
 		
 		public function __construct(
-			$host = Memcached::DEFAULT_HOST,
-			$port = Memcached::DEFAULT_PORT,
-			$connectTimeout = PeclMemcached::DEFAULT_TIMEOUT
+			$host = self::DEFAULT_HOST,
+			$port = self::DEFAULT_PORT,
+			$connectTimeout = self::DEFAULT_TIMEOUT
 		)
 		{
 			$this->host = $host;
@@ -64,6 +68,25 @@
 					// shhhh.
 				}
 			}
+		}
+
+		public function getConnectionStrategy()
+		{
+			return $this->connectionStrategy;
+		}
+
+		public function setConnectionStrategy($strategy)
+		{
+			if (
+				self::CONNECTION_STRATEGY_COMMON != $strategy
+				&& self::CONNECTION_STRATEGY_PERSISTENT != $strategy
+			)
+				throw new InvalidArgumentException(
+					sprintf('Undefined strategy "%s"', $strategy)
+				);
+
+
+			$this->connectionStrategy = $strategy;
 		}
 		
 		public function isAlive()
@@ -204,6 +227,11 @@
 		{
 			return $this->host;
 		}
+
+		public function getPort()
+		{
+			return $this->port;
+		}
 		
 		protected function ensureTriedToConnect()
 		{
@@ -242,15 +270,37 @@
 		
 		protected function connect()
 		{
+			$this->alive = true;
 			$this->instance = new Memcache();
 
-			try {
-				$this->instance->connect($this->host, $this->port, $this->connectTimeout);
-			} catch (BaseException $e) {
-				return false;
+			if (
+				self::CONNECTION_STRATEGY_PERSISTENT
+				== $this->connectionStrategy
+			) {
+				try {
+					$this->instance->pconnect(
+						$this->host,
+						$this->port,
+						$this->connectTimeout
+					);
+
+					return true;
+				} catch(BaseException $e) {
+					// try to connect in a common way
+				}
 			}
 
-			$this->alive = true;
+			try {
+				$this->instance->connect(
+					$this->host,
+					$this->port,
+					$this->connectTimeout
+				);
+			} catch (BaseException $e) {
+				$this->alive = false;
+			}
+
+			return $this->alive;
 		}
 		
 		private function doGet($index, &$cas = self::CAS_EMPTY)
