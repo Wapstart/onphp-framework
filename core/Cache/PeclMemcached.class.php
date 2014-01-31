@@ -24,17 +24,14 @@
 		const DEFAULT_TIMEOUT					= 1;
 
 		const CAS_EMPTY							= 'I_AM_EMPTY';
-
-		const CONNECTION_STRATEGY_COMMON		= 11;
-		const CONNECTION_STRATEGY_PERSISTENT 	= 12;
 		
-		protected $host				= null;
-		protected $port				= null;
-		private $instance			= null;
-		private $requestTimeout 	= null;
-		private $connectTimeout 	= null;
-		private $triedConnect		= false;
-		private $connectionStrategy = self::CONNECTION_STRATEGY_COMMON;
+		protected $host							= null;
+		protected $port							= null;
+		private $instance						= null;
+		private $requestTimeout 				= null;
+		private $connectTimeout 				= null;
+		private $triedConnect					= false;
+		private $isPersistentConnection			= false;
 		
 		/**
 		 * @return PeclMemcached
@@ -70,23 +67,16 @@
 			}
 		}
 
-		public function getConnectionStrategy()
+		public function isPersistentConnection()
 		{
-			return $this->connectionStrategy;
+			return true === $this->isPersistentConnection;
 		}
 
-		public function setConnectionStrategy($strategy)
+		public function setPersistentConnection($orly = true)
 		{
-			if (
-				self::CONNECTION_STRATEGY_COMMON != $strategy
-				&& self::CONNECTION_STRATEGY_PERSISTENT != $strategy
-			)
-				throw new InvalidArgumentException(
-					sprintf('Undefined strategy "%s"', $strategy)
-				);
+			$this->isPersistentConnection = (true === $orly);
 
-
-			$this->connectionStrategy = $strategy;
+			return $this;
 		}
 		
 		public function isAlive()
@@ -273,10 +263,7 @@
 			$this->alive = true;
 			$this->instance = new Memcache();
 
-			if (
-				self::CONNECTION_STRATEGY_PERSISTENT
-				== $this->connectionStrategy
-			) {
+			if ($this->isPersistentConnection) {
 				try {
 					$this->instance->pconnect(
 						$this->host,
