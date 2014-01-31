@@ -31,7 +31,7 @@
 		private $requestTimeout 				= null;
 		private $connectTimeout 				= null;
 		private $triedConnect					= false;
-		private $isPersistentConnection			= false;
+		private $isPersistentConnection			= true;
 		
 		/**
 		 * @return PeclMemcached
