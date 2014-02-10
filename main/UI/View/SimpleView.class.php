@@ -20,13 +20,23 @@
 		private $content = null;
 
 		/**
+		 * @var HttpStatus
+		 */
+		private $status = null;
+
+		/**
 		 * @var HttpHeaderCollection
 		 */
 		private $headerCollection = null;
 
-		public function __construct($content, array $headers = array())
+		public function __construct(
+			$content = null,
+			HttpStatus $status,
+			array $headers = array()
+		)
 		{
-			$this->content = $content;
+			$this->content          = $content;
+			$this->status           = $status;
 			$this->headerCollection = new HttpHeaderCollection($headers);
 		}
 
@@ -40,6 +50,8 @@
 
 		public function render($model = null)
 		{
+			header($this->status->toString());
+
 			foreach ($this->headerCollection as $name => $valueList)
 				foreach ($valueList as $value)
 					header($name.': '.$value, true);
