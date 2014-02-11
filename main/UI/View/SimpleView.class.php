@@ -31,12 +31,12 @@
 
 		public function __construct(
 			$content = null,
-			HttpStatus $status,
+			HttpStatus $status = null,
 			array $headers = array()
 		)
 		{
 			$this->content          = $content;
-			$this->status           = $status;
+			$this->status           = $status ?: new HttpStatus(HttpStatus::CODE_200);
 			$this->headerCollection = new HttpHeaderCollection($headers);
 		}
 
