@@ -29,24 +29,69 @@
 		// reference, not copy
 		private $session	= array();
 		
-		// uploads
+		// uploads and downloads (CurlHttpClient)
 		private $files		= array();
 		
 		// all other sh1t
 		private $attached	= array();
 		
-		private $headers	= array();
+		private $headers	= null;
 		
+		/**
+		 * @var HttpMethod
+		 */
 		private $method		= null;
 		
+		/**
+		 * @var HttpUrl
+		 */
 		private $url		= null;
+
+		private $body		= null;
 		
 		/**
 		 * @return HttpRequest
 		**/
 		public static function create()
 		{
-			return new self;
+			return new static();
+		}
+
+		/**
+		 * @return HttpRequest
+		**/
+		public static function createFromGlobals()
+		{
+			$request =
+				static::create()->
+				setGet($_GET)->
+				setPost($_POST)->
+				setServer($_SERVER)->
+				setCookie($_COOKIE)->
+				setFiles($_FILES);
+
+			if (isset($_SESSION))
+				$request->setSession($_SESSION);
+
+			foreach ($_SERVER as $name => $value) {
+				if (strpos($name, 'HTTP_') === 0) {
+					$name = str_replace('_', '-', substr($name, 5));
+					$request->setHeaderVar($name, $value);
+				}
+			}
+
+			$request->
+				setBody(file_get_contents('php://input'))->
+				setMethod(
+					HttpMethod::createByName($request->getServerVar('REQUEST_METHOD'))
+				);
+
+			return $request;
+		}
+
+		public function __construct()
+		{
+			$this->headers = new HttpHeaderCollection();
 		}
 		
 		public function &getGet()
@@ -138,7 +183,7 @@
 		public function setServer(array $server)
 		{
 			$this->server = $server;
-			
+
 			return $this;
 		}
 		
@@ -180,7 +225,11 @@
 		{
 			return $this->session;
 		}
-		
+
+		/**
+		 * @param string $name
+		 * @return mixed
+		 */
 		public function getSessionVar($name)
 		{
 			return $this->session[$name];
@@ -240,7 +289,11 @@
 		{
 			return $this->attached;
 		}
-		
+
+		/**
+		 * @param string $name
+		 * @return mixed
+		 */
 		public function getAttachedVar($name)
 		{
 			return $this->attached[$name];
@@ -268,7 +321,7 @@
 		
 		public function getHeaderList()
 		{
-			return $this->headers;
+			return $this->headers->getAll();
 		}
 		
 		public function hasHeaderVar($name)
@@ -278,7 +331,7 @@
 		
 		public function getHeaderVar($name)
 		{
-			return $this->headers[$name];
+			return $this->headers->get($name);
 		}
 		
 		/**
@@ -295,7 +348,7 @@
 		**/
 		public function setHeaderVar($name, $var)
 		{
-			$this->headers[$name] = $var;
+			$this->headers->set($name, $var);
 			return $this;
 		}
 		
@@ -304,7 +357,7 @@
 		**/
 		public function setHeaders(array $headers)
 		{
-			$this->headers = $headers;
+			$this->headers = new HttpHeaderCollection($headers);
 			return $this;
 		}
 		
@@ -340,6 +393,26 @@
 		public function getUrl()
 		{
 			return $this->url;
+		}
+		
+		public function hasBody()
+		{
+			return $this->body !== null;
+		}
+		
+		public function getBody()
+		{
+			return $this->body;
+		}
+		
+		/**
+		 * @param string $body
+		 * @return HttpRequest
+		 */
+		public function setBody($body)
+		{
+			$this->body = $body;
+			return $this;
 		}
 	}
 ?>
