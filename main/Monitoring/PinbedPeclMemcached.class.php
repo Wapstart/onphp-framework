@@ -18,9 +18,9 @@
 		 * @return PinbedPeclMemcached 
 		**/
 		public static function create(
-			$host = Memcached::DEFAULT_HOST,
-			$port = Memcached::DEFAULT_PORT,
-			$connectTimeout = PeclMemcached::DEFAULT_TIMEOUT
+			$host = self::DEFAULT_HOST,
+			$port = self::DEFAULT_PORT,
+			$connectTimeout = self::DEFAULT_TIMEOUT
 		)
 		{
 			return new self($host, $port);
