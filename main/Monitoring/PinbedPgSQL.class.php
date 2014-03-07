@@ -43,10 +43,10 @@
 			return $result;
 		}
 
-		protected function startTimer($method_name)
+		protected function startTimer($methodName)
 		{
 			PinbaClient::me()->timerStart(
-				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$method_name,
+				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName,
 				array(
 					'group'	=> 'db::'.$methodName,
 					'host'	=> $this->hostname.':'.$this->port,
@@ -54,17 +54,17 @@
 			);
 		}
 
-		protected function stopTimer($method_name)
+		protected function stopTimer($methodName)
 		{
 			PinbaClient::me()->timerStop(
-				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$method_name
+				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName
 			);
 		}
 
-		protected function deleteTimer($method_name)
+		protected function deleteTimer($methodName)
 		{
 			PinbaClient::me()->timerDelete(
-				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$method_name
+				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName
 			);
 		}
 	}

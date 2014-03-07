@@ -99,10 +99,10 @@
 			return $result;
 		}
 
-		protected function startTimer($method_name)
+		protected function startTimer($methodName)
 		{
 			PinbaClient::me()->timerStart(
-				'memcached_'.$this->host.'_'.$this->port.'_'.$method_name,
+				'memcached_'.$this->host.'_'.$this->port.'_'.$methodName,
 				array(
 					'group'	=> 'memcache::'.$methodName,
 					'host'	=> $this->host.':'.$this->port,
@@ -110,10 +110,10 @@
 			);
 		}
 
-		protected function stopTimer($method_name)
+		protected function stopTimer($methodName)
 		{
 			PinbaClient::me()->timerStop(
-				'memcached_'.$this->host.'_'.$this->port.'_'.$method_name
+				'memcached_'.$this->host.'_'.$this->port.'_'.$methodName
 			);
 		}
 	}
