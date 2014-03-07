@@ -45,57 +45,57 @@
 
 		public function clean()
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::clean();
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
 		public function getList($indexes)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::getList($indexes);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
 		public function increment($key, $value)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::increment($key, $value);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
 		public function decrement($key, $value)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::decrement($key, $value);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
 		public function get($index)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::get($index);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
 		public function delete($index, $time = null)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::delete($index, $time);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
 		public function append($key, $data)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::append($key, $data);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
