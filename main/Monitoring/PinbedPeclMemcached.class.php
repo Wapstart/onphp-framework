@@ -28,73 +28,66 @@
 		
 		public function append($key, $data)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			$result = parent::append($key, $data);
-			$this->stopLog(__METHOD__);
-			
+			$this->stopTimer(__METHOD__);
 			return $result;
 		}
 		
 		public function decrement($key, $value)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			$result = parent::decrement($key, $value);
-			$this->stopLog(__METHOD__);
-			
+			$this->stopTimer(__METHOD__);
 			return $result;
 		}
 		
 		public function delete($index)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			$result = parent::delete($index);
-			$this->stopLog(__METHOD__);
-			
+			$this->stopTimer(__METHOD__);
 			return $result;
 		}
 		
 		public function get($index)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			$result = parent::get($index);
-			$this->stopLog(__METHOD__);
-			
+			$this->stopTimer(__METHOD__);
 			return $result;
 		}
 		
 		public function getc($index, &$cas)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			$result = parent::getc($index, $cas);
-			$this->stopLog(__METHOD__);
-			
+			$this->stopTimer(__METHOD__);
 			return $result;
 		}
 		
 		public function cas($key, $value, $expires = Cache::EXPIRES_MEDIUM, $cas)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			parent::cas($key, $value, $expires, $cas);
-			$this->stopLog(__METHOD__);
-			
+			$this->stopTimer(__METHOD__);
 			return $result;
 		}
 		
 		public function getList($indexes)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			$result = parent::getList($indexes);
-			$this->stopLog(__METHOD__);
+			$this->stopTimer(__METHOD__);
 			
 			return $result;
 		}
 		
 		public function increment($key, $value)
 		{
-			$this->log(__METHOD__);
+			$this->startTimer(__METHOD__);
 			$result = parent::increment($key, $value);
-			$this->stopLog(__METHOD__);
-			
+			$this->stopTimer(__METHOD__);
 			return $result;
 		}
 		
@@ -102,51 +95,36 @@
 			$action, $key, $value, $expires = Cache::EXPIRES_MEDIUM
 		)
 		{
-			$this->log(__METHOD__.$action);
-			
+			$this->startTimer(__METHOD__.$action);
 			$result = parent::store($action, $key, $value, $expires);
-			
-			$this->stopLog(__METHOD__.$action);
-			
+			$this->stopTimer(__METHOD__.$action);
 			return $result;
 			
 		}
 		
 		protected function connect()
 		{
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStart(
-					'pecl_memcached_'.$this->host.'_'.$this->port.'_connect',
-					array('pecl_memcached_connect' => $this->host.'_'.$this->port)
-				);
-			
+			$this->startTimer(__METHOD__);
 			parent::connect();
-			
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStop(
-					'pecl_memcached_'.$this->host.'_'.$this->port.'_connect'
-				);
+			$this->stopTimer(__METHOD__);
 		}
-		
-		/*void */ private function log($methodName)
+
+		protected function startTimer($method_name)
 		{
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStart(
-					'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$methodName,
-					array(
-						'group'				=> 'cache',
-						'memcached_server'	=> $this->host.'::'.$this->port,
-						'memcached_type'	=> $methodName
-					)
-				);
+			PinbaClient::me()->timerStart(
+				'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$method_name,
+				array(
+					'group'	=> 'memcache::'.$methodName,
+					'host'	=> $this->host.':'.$this->port,
+				)
+			);
 		}
-		
-		/*void */ private function stopLog($methodName)
+
+		protected function stopTimer($method_name)
 		{
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStop(
-					'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$methodName
-				);
+			PinbaClient::me()->timerStop(
+				'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$method_name
+			);
 		}
 	}
 ?>
