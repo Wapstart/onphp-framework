@@ -37,7 +37,6 @@
 		{
 			if (self::$enabled === null)
 				self::$enabled = ini_get("pinba.enabled") === "1";
-			
 			return self::$enabled;
 		}
 		
@@ -60,7 +59,7 @@
 		
 		public function timerStart($name, array $tags, array $data = array())
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			$name .= $this->suffix;
@@ -95,7 +94,7 @@
 		
 		public function timerStop($name)
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			if ($this->isTreeLogEnabled())
@@ -120,7 +119,7 @@
 		
 		public function timerDelete($name)
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			$name .= $this->suffix;
@@ -147,7 +146,7 @@
 		
 		public function setScriptName($name)
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			pinba_script_name_set($name);
@@ -157,7 +156,7 @@
 		
 		public function setHostName($name)
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			$this->hostName = $name;
@@ -168,7 +167,7 @@
 
 		public function mergeTags($name, array $tags)
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			$name .= $this->suffix;
@@ -183,7 +182,7 @@
 
 		public function replaceTags($name, array $tags)
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			$name .= $this->suffix;
@@ -220,7 +219,7 @@
 		 */
 		public function flush()
 		{
-			if (!self::$enabled)
+			if (!self::isEnabled())
 				return $this;
 
 			pinba_flush();

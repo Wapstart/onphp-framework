@@ -28,66 +28,66 @@
 		
 		public function append($key, $data)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::append($key, $data);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 		
 		public function decrement($key, $value)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::decrement($key, $value);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 		
 		public function delete($index)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::delete($index);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 		
 		public function get($index)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::get($index);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 		
 		public function getc($index, &$cas)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::getc($index, $cas);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 		
 		public function cas($key, $value, $expires = Cache::EXPIRES_MEDIUM, $cas)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			parent::cas($key, $value, $expires, $cas);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 		
 		public function getList($indexes)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::getList($indexes);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			
 			return $result;
 		}
 		
 		public function increment($key, $value)
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			$result = parent::increment($key, $value);
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 		
@@ -95,18 +95,18 @@
 			$action, $key, $value, $expires = Cache::EXPIRES_MEDIUM
 		)
 		{
-			$this->startTimer(__METHOD__.$action);
+			$this->startTimer(__FUNCTION__.$action);
 			$result = parent::store($action, $key, $value, $expires);
-			$this->stopTimer(__METHOD__.$action);
+			$this->stopTimer(__FUNCTION__.$action);
 			return $result;
 			
 		}
 		
 		protected function connect()
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			parent::connect();
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 		}
 
 		protected function startTimer($methodName)

@@ -16,14 +16,14 @@
 	{
 		public function connect()
 		{
-			$this->startTimer(__METHOD__);
+			$this->startTimer(__FUNCTION__);
 			try {
 				$result = parent::connect();
 			} catch (Exception $e) {
-				$this->deleteTimer(__METHOD__);
+				$this->deleteTimer(__FUNCTION__);
 				throw $e;
 			}
-			$this->stopTimer(__METHOD__);
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
@@ -48,7 +48,7 @@
 			PinbaClient::me()->timerStart(
 				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName,
 				array(
-					'group'	=> 'db::'.$methodName,
+					'group'	=> 'db::'.strtolower($methodName),
 					'host'	=> $this->hostname.':'.$this->port,
 				)
 			);
