@@ -42,7 +42,7 @@
 		/**
 		 * @var BaseLogger
 		 */
-		protected static $Logger = null;
+		protected static $logger = null;
 		
 		abstract public function connect();
 		abstract public function disconnect();
@@ -339,16 +339,16 @@
 			return $this;
 		}
 
-		public static function setLogger(BaseLogger $Logger)
+		public static function setLogger(BaseLogger $logger)
 		{
-			self::$Logger = $Logger;
+			self::$logger = $logger;
 		}
 
 		protected function log($message)
 		{
-			if (self::$Logger) {
+			if (self::$logger) {
 				$message = "{$this->hostname}.{$this->basename}: ".$message.PHP_EOL;
-				self::$Logger->info($message);
+				self::$logger->info($message);
 			}
 		}
 	}
