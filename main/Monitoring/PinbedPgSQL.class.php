@@ -14,66 +14,58 @@
 	**/
 	final class PinbedPgSQL extends PgSQL
 	{
-		protected static $n = 0;
-
 		public function connect()
 		{
-			self::$n++;
-
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStart(
-					$this->getConnectTimerName(),
-					array(
-					'group' => 'sql',
-					'pg_sql_connect' => $this->basename
-					)
-				);
-			
-			$result = parent::connect();
-			
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStop($this->getConnectTimerName());
-			
+			$this->startTimer(__FUNCTION__);
+			try {
+				$result = parent::connect();
+			} catch (Exception $e) {
+				$this->deleteTimer(__FUNCTION__);
+				throw $e;
+			}
+			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
 
-		protected function getConnectTimerName()
-		{
-			return 'pg_sql_connect_'.$this->basename.'_'.self::$n;
-		}
-		
 		public function queryRaw($queryString)
 		{
-			if (PinbaClient::isEnabled()) {
-				$queryLabel = substr($queryString, 0, 5);
-				
-				PinbaClient::me()->timerStart(
-					'pg_sql_query_'.$this->basename,
-					array(
-						'group'			=> 'sql',
-						'pg_sql_query'	=> $queryLabel,
-						'pg_sql_server'	=> $this->hostname,
-						'pg_sql_base'	=> $this->basename
-					)
-				);
-			}
+			$queryLabel = substr($queryString, 0, 5);
+			$this->startTimer($queryLabel);
 			
 			try {
 				$result = parent::queryRaw($queryString);
-				
-				if (PinbaClient::isEnabled())
-					PinbaClient::me()->timerStop('pg_sql_query_'.$this->basename);
-				
-				return $result;
-				
 			} catch (Exception $e) {
-				if (PinbaClient::isEnabled())
-					PinbaClient::me()->timerStop('pg_sql_query_'.$this->basename);
-				
+				$this->deleteTimer($queryLabel);
 				throw $e;
 			}
-			
-			Assert::isUnreachable();
+
+			$this->stopTimer($queryLabel);
+			return $result;
+		}
+
+		protected function startTimer($methodName)
+		{
+			PinbaClient::me()->timerStart(
+				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName,
+				array(
+					'group'	=> 'db::'.strtolower($methodName),
+					'host'	=> $this->hostname.':'.$this->port,
+				)
+			);
+		}
+
+		protected function stopTimer($methodName)
+		{
+			PinbaClient::me()->timerStop(
+				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName
+			);
+		}
+
+		protected function deleteTimer($methodName)
+		{
+			PinbaClient::me()->timerDelete(
+				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName
+			);
 		}
 	}
 ?>

@@ -14,6 +14,9 @@
 	**/
 	final class PinbedMemcached extends Memcached
 	{
+		protected $host;
+		protected $port;
+
 		/**
 		 * @return PinbedMemcached 
 		**/
@@ -32,18 +35,86 @@
 			$buffer = Memcached::DEFAULT_BUFFER
 		)
 		{
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStart(
-					'memcached_'.$host.'_'.$port.'_connect',
-					array('memcached_connect' => $host.'_'.$port)
-				);
-			
+			$this->host = $host;
+			$this->port = $port;
+
+			$this->startTimer('connect');
 			parent::__construct($host, $port, $buffer);
-			
-			if (PinbaClient::isEnabled())
-				PinbaClient::me()->timerStop(
-					'memcached_'.$host.'_'.$port.'_connect'
-				);
+			$this->stopTimer('connect');
+		}
+
+		public function clean()
+		{
+			$this->startTimer(__FUNCTION__);
+			$result = parent::clean();
+			$this->stopTimer(__FUNCTION__);
+			return $result;
+		}
+
+		public function getList($indexes)
+		{
+			$this->startTimer(__FUNCTION__);
+			$result = parent::getList($indexes);
+			$this->stopTimer(__FUNCTION__);
+			return $result;
+		}
+
+		public function increment($key, $value)
+		{
+			$this->startTimer(__FUNCTION__);
+			$result = parent::increment($key, $value);
+			$this->stopTimer(__FUNCTION__);
+			return $result;
+		}
+
+		public function decrement($key, $value)
+		{
+			$this->startTimer(__FUNCTION__);
+			$result = parent::decrement($key, $value);
+			$this->stopTimer(__FUNCTION__);
+			return $result;
+		}
+
+		public function get($index)
+		{
+			$this->startTimer(__FUNCTION__);
+			$result = parent::get($index);
+			$this->stopTimer(__FUNCTION__);
+			return $result;
+		}
+
+		public function delete($index, $time = null)
+		{
+			$this->startTimer(__FUNCTION__);
+			$result = parent::delete($index, $time);
+			$this->stopTimer(__FUNCTION__);
+			return $result;
+		}
+
+		public function append($key, $data)
+		{
+			$this->startTimer(__FUNCTION__);
+			$result = parent::append($key, $data);
+			$this->stopTimer(__FUNCTION__);
+			return $result;
+		}
+
+		protected function startTimer($methodName)
+		{
+			PinbaClient::me()->timerStart(
+				'memcached_'.$this->host.'_'.$this->port.'_'.$methodName,
+				array(
+					'group'	=> 'memcache::'.$methodName,
+					'host'	=> $this->host.':'.$this->port,
+				)
+			);
+		}
+
+		protected function stopTimer($methodName)
+		{
+			PinbaClient::me()->timerStop(
+				'memcached_'.$this->host.'_'.$this->port.'_'.$methodName
+			);
 		}
 	}
 ?>
