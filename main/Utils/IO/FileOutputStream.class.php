@@ -80,10 +80,12 @@
 		**/
 		public function close()
 		{
-			fclose($this->fd);
-			
-			$this->fd = null;
-			
+			if ($this->fd) {
+				fclose($this->fd);
+
+				$this->fd = null;
+			}
+
 			return $this;
 		}
 	}

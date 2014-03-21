@@ -103,6 +103,7 @@
 		public function queryRaw($queryString)
 		{
 			try {
+				$this->log($queryString);
 				return pg_query($this->link, $queryString);
 			} catch (BaseException $e) {
 				// manual parsing, since pg_send_query() and

@@ -38,6 +38,11 @@
 		
 		private $queue			= array();
 		private $toQueue		= false;
+
+		/**
+		 * @var BaseLogger
+		 */
+		protected static $logger = null;
 		
 		abstract public function connect();
 		abstract public function disconnect();
@@ -332,6 +337,19 @@
 			$this->encoding = $encoding;
 			
 			return $this;
+		}
+
+		public static function setLogger(BaseLogger $logger)
+		{
+			self::$logger = $logger;
+		}
+
+		protected function log($message)
+		{
+			if (self::$logger) {
+				$message = "{$this->hostname}.{$this->basename}: ".$message.PHP_EOL;
+				self::$logger->info($message);
+			}
 		}
 	}
 ?>
