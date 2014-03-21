@@ -1,5 +1,5 @@
 <?php
-	final class SimpleApplicationUrl extends ApplicationUrl
+	class SimpleApplicationUrl extends ApplicationUrl
 	{
 		/**
 		 * @return SimpleApplicationUrl

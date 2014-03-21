@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Primitives
 	**/
-	final class PrimitivePolygon extends BaseObjectPrimitive
+	class PrimitivePolygon extends BaseObjectPrimitive
 	{
 		protected $className = 'Polygon';
 	}

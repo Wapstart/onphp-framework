@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup OSQL
 	**/
-	final class SQLArray implements DialectString
+	class SQLArray implements DialectString
 	{
 		private $array = array();
 		

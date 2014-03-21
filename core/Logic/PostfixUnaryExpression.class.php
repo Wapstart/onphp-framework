@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Logic
 	**/
-	final class PostfixUnaryExpression implements LogicalObject, MappableObject
+	class PostfixUnaryExpression implements LogicalObject, MappableObject
 	{
 		const IS_NULL			= 'IS NULL';
 		const IS_NOT_NULL		= 'IS NOT NULL';

@@ -15,7 +15,7 @@
 	 * @ingroup Base
 	 * @ingroup Module
 	**/
-	final class Identifier implements Identifiable
+	class Identifier implements Identifiable
 	{
 		private $id		= null;
 		private $final	= false;
@@ -56,7 +56,7 @@
 		**/
 		public function finalize()
 		{
-			$this->final = true;
+			$this->= true;
 			
 			return $this;
 		}

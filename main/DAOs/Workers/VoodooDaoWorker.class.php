@@ -26,7 +26,7 @@
 	 * 
 	 * @ingroup DAOs
 	**/
-	final class VoodooDaoWorker extends TransparentDaoWorker
+	class VoodooDaoWorker extends TransparentDaoWorker
 	{
 		private $classKey = null;
 		private $handler = null;

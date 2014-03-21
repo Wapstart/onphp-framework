@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartTitle extends BaseGoogleChartParameter
+	class GoogleChartTitle extends BaseGoogleChartParameter
 	{
 		protected static $paramName = 'chtt';
 		

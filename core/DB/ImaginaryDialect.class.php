@@ -15,7 +15,7 @@
 	 * @ingroup DB
 	 * @ingroup Module
 	**/
-	final class ImaginaryDialect extends Dialect
+	class ImaginaryDialect extends Dialect
 	{
 		/**
 		 * @return ImaginaryDialect

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Crypto
 	**/
-	final class CryptoFunctions extends StaticFactory
+	class CryptoFunctions extends StaticFactory
 	{
 		const SHA1_BLOCK_SIZE = 64;
 		

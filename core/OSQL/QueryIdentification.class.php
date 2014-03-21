@@ -20,7 +20,7 @@
 			return sha1($this->toString());
 		}
 		
-		final public function setId($id)
+		public function setId($id)
 		{
 			throw new UnsupportedMethodException();
 		}

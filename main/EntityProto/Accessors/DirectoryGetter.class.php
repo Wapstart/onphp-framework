@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DirectoryGetter extends PrototypedGetter
+	class DirectoryGetter extends PrototypedGetter
 	{
 		public function get($name)
 		{

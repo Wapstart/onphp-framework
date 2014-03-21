@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterStaticArrayRule extends RouterBaseRule
+	class RouterStaticArrayRule extends RouterBaseRule
 	{
 		protected $routes;
 

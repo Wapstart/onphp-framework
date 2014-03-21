@@ -17,7 +17,7 @@
 	 * 
 	 * @ingroup DB
 	**/
-	final class MySQL extends Sequenceless
+	class MySQL extends Sequenceless
 	{
 		/**
 		 * @return MyDialect

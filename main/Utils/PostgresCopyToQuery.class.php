@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Utils
 	**/
-	final class PostgresCopyToQuery
+	class PostgresCopyToQuery
 	{
 		private $tableName = null;
 		private $db = null;

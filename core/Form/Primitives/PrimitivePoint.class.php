@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Primitives
 	**/
-	final class PrimitivePoint extends BaseObjectPrimitive
+	class PrimitivePoint extends BaseObjectPrimitive
 	{
 		protected $className = 'Point';
 	}

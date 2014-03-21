@@ -15,7 +15,7 @@
 	 * @ingroup OSQL
 	 * @ingroup Module
 	**/
-	final class FromTable implements Aliased, SQLTableName
+	class FromTable implements Aliased, SQLTableName
 	{
 		private $table	= null;
 		private $alias	= null;

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartAxisCollection
+	class GoogleChartAxisCollection
 	{
 		private $axes = array();
 		

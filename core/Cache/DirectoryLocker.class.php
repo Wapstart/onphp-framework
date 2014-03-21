@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Lockers
 	**/
-	final class DirectoryLocker extends BaseLocker
+	class DirectoryLocker extends BaseLocker
 	{
 		private $directory = null;
 		

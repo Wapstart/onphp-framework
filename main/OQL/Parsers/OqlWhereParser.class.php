@@ -9,7 +9,7 @@
  *                                                                          *
  ****************************************************************************/
 
-	final class OqlWhereParser extends OqlParser
+	class OqlWhereParser extends OqlParser
 	{
 		/**
 		 * @return OqlWhereParser

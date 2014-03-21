@@ -13,7 +13,7 @@
 	 *
 	 * @ingroup Cache
 	**/
-	final class CyclicAggregateCache extends BaseAggregateCache
+	class CyclicAggregateCache extends BaseAggregateCache
 	{
 		const DEFAULT_SUMMARY_WEIGHT = 1000;
 		

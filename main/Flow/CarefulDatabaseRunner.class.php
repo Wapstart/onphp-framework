@@ -12,14 +12,14 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class CarefulDatabaseRunner implements CarefulCommand
+	class CarefulDatabaseRunner implements CarefulCommand
 	{
 		private $command	= null;
 		private $db			= null;
 		
 		private $running = false;
 		
-		final public function __construct(EditorCommand $command)
+		public function __construct(EditorCommand $command)
 		{
 			$this->command = $command;
 		}

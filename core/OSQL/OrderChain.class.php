@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class OrderChain implements DialectString, MappableObject
+	class OrderChain implements DialectString, MappableObject
 	{
 		private $chain = array();
 		

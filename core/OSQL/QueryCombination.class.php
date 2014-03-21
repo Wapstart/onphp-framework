@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class QueryCombination
+	class QueryCombination
 		extends QueryIdentification
 		implements DialectString
 	{

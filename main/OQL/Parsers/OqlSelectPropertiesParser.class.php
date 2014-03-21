@@ -9,7 +9,7 @@
  *                                                                          *
  ****************************************************************************/
 
-	final class OqlSelectPropertiesParser extends OqlParser
+	class OqlSelectPropertiesParser extends OqlParser
 	{
 		// class map
 		const SUM_PROJECTION			= 'sum';

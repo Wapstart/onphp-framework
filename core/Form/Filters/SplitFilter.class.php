@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Filters
 	**/
-	final class SplitFilter implements Filtrator
+	class SplitFilter implements Filtrator
 	{
 		private $separator		= ' ';
 		private $splitByRegExp	= false;

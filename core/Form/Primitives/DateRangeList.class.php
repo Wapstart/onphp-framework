@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Primitives
 	**/
-	final class DateRangeList extends BasePrimitive implements Stringable
+	class DateRangeList extends BasePrimitive implements Stringable
 	{
 		protected $value = array();
 		

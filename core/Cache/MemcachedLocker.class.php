@@ -15,7 +15,7 @@
 	 *
 	 * @ingroup Lockers
 	**/
-	final class MemcachedLocker extends BaseLocker implements Instantiatable
+	class MemcachedLocker extends BaseLocker implements Instantiatable
 	{
 		const VALUE = 0x1;
 		

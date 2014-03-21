@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class EmptyGifView implements View
+	class EmptyGifView implements View
 	{
 		/**
 		 * @return EmptyGifView

@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Base
 	**/
-	final class SessionNotStartedException extends BaseException
+	class SessionNotStartedException extends BaseException
 	{
 		public function __construct()
 		{
@@ -30,7 +30,7 @@
 	 * 
 	 * @ingroup Base
 	**/
-	final class Session extends StaticFactory
+	class Session extends StaticFactory
 	{
 		private static $isStarted = false;
 		

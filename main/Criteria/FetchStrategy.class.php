@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Criteria
 	**/
-	final class FetchStrategy extends Enumeration
+	class FetchStrategy extends Enumeration
 	{
 		const JOIN		= 1;
 		const CASCADE	= 2;

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Projections
 	**/
-	final class GroupByPropertyProjection extends BaseProjection
+	class GroupByPropertyProjection extends BaseProjection
 	{
 		/**
 		 * @return JoinCapableQuery

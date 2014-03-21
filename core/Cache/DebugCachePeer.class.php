@@ -14,7 +14,7 @@
 	 *
 	 * @ingroup Cache
 	**/
-	final class DebugCachePeer extends SelectivePeer
+	class DebugCachePeer extends SelectivePeer
 	{
 		private $peer				= null;
 		private $logger				= null;

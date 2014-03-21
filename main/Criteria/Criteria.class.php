@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Criteria
 	**/
-	final class Criteria extends QueryIdentification
+	class Criteria extends QueryIdentification
 	{
 		private $dao		= null;
 		private $daoClass	= null;

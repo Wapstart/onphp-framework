@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Base
 	**/
-	final class IntervalUnit
+	class IntervalUnit
 	{
 		private $name		= null;
 		

@@ -22,7 +22,7 @@
 		protected function __construct() {/* you can't create me */}
 		
 		/// @example singleton.php
-		final public static function getInstance(
+		public static function getInstance(
 			$class, $args = null /* , ... */
 		)
 		{
@@ -60,12 +60,12 @@
 			return self::$instances[$class];
 		}
 		
-		final public static function getAllInstances()
+		public static function getAllInstances()
 		{
 			return self::$instances;
 		}
 		
-		/* void */ final public static function dropInstance($class)
+		/* void */ public static function dropInstance($class)
 		{
 			if (!isset(self::$instances[$class]))
 				throw new MissingElementException('knows nothing about '.$class);
@@ -73,7 +73,7 @@
 			unset(self::$instances[$class]);
 		}
 		
-		final private function __clone() {/* do not clone me */}
-		final private function __sleep() {/* restless class */}
+		private function __clone() {/* do not clone me */}
+		private function __sleep() {/* restless class */}
 	}
 ?>

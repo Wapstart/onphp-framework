@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class CommandChain implements EditorCommand
+	class CommandChain implements EditorCommand
 	{
 		private $chain = array();
 		

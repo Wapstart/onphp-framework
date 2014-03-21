@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterRegexpRule extends RouterBaseRule
+	class RouterRegexpRule extends RouterBaseRule
 	{
 		protected $regexp	= null;
 		protected $reverse	= null;

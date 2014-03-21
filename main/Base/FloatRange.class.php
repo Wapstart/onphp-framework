@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class FloatRange extends BaseRange
+	class FloatRange extends BaseRange
 	{
 		public function __construct($min = null, $max = null)
 		{

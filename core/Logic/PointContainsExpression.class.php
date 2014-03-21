@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Logic
 	**/
-	final class PointContainsExpression implements LogicalObject, MappableObject
+	class PointContainsExpression implements LogicalObject, MappableObject
 	{
 		private $polygon = null;
 		private $point = null;

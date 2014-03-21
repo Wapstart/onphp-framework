@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Transaction
 	**/
-	final class Transaction extends StaticFactory
+	class Transaction extends StaticFactory
 	{
 		/**
 		 * @return DBTransaction

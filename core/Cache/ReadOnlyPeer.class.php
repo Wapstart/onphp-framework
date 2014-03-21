@@ -14,7 +14,7 @@
 	 *
 	 * @ingroup Cache
 	**/
-	final class ReadOnlyPeer extends CachePeer
+	class ReadOnlyPeer extends CachePeer
 	{
 		/**
 		 * @var CachePeer

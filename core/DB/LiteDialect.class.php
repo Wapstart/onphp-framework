@@ -16,7 +16,7 @@
 	 *
 	 * @ingroup DB
 	**/
-	final class LiteDialect extends Dialect
+	class LiteDialect extends Dialect
 	{
 		/**
 		 * @return LiteDialect

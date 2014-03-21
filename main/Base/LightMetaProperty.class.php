@@ -447,7 +447,7 @@
 			return $this->identifier;
 		}
 		
-		final public function toString()
+		public function toString()
 		{
 			return
 				get_class($this).'::fill('

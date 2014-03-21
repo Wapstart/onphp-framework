@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class RandomLinesBackgroundDrawer extends BackgroundDrawer
+	class RandomLinesBackgroundDrawer extends BackgroundDrawer
 	{
 		private $count = null;
 		

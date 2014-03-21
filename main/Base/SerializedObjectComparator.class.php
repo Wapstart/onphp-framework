@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class SerializedObjectComparator extends Singleton
+	class SerializedObjectComparator extends Singleton
 		implements Comparator, Instantiatable
 	{
 		public static function me()

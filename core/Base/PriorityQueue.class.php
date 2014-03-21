@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class PriorityQueue
+	class PriorityQueue
 	{
 		private $heap 			= array(0);
 		private $heapSize		= 0;

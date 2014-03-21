@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class NullController implements Controller
+	class NullController implements Controller
 	{
 		private $model = null;
 		

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Logic
 	**/
-	final class ArrayAccessExpression implements MappableObject
+	class ArrayAccessExpression implements MappableObject
 	{
 		private $field	= null;
 		private $keys	= array();

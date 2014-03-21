@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterTransparentRule extends RouterBaseRule
+	class RouterTransparentRule extends RouterBaseRule
 	{
 		protected $urlVariable		= ':';
 		protected $urlDelimiter		= '/';

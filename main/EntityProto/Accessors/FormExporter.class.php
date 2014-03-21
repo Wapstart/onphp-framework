@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class FormExporter extends PrototypedGetter
+	class FormExporter extends PrototypedGetter
 	{
 		public function __construct(EntityProto $proto, $object)
 		{

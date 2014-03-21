@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartType extends Enumeration
+	class GoogleChartType extends Enumeration
 	{
 		const LINE					= 0x1;
 		const TWO_DIMENSIONAL_PIE	= 0x2;

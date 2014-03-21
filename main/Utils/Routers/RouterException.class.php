@@ -9,5 +9,5 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterException extends BaseException {/*_*/}
+	class RouterException extends BaseException {/*_*/}
 ?>

@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class TempFile
+	class TempFile
 	{
 		private $path = null;
 		

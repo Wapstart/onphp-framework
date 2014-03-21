@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartAxis
+	class GoogleChartAxis
 	{
 		private $type = null;
 		

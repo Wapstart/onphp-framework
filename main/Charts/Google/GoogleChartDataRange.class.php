@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartDataRange
+	class GoogleChartDataRange
 	{
 		private static $paramName = 'chxr';
 		

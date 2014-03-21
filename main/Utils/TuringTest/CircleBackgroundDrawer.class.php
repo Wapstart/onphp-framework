@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class CircleBackgroundDrawer extends BackgroundDrawer
+	class CircleBackgroundDrawer extends BackgroundDrawer
 	{
 		const VERTEX_COUNT	= 20;
 		

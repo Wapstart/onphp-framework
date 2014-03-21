@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Calendar
 	**/
-	final class CalendarMonthWeekly
+	class CalendarMonthWeekly
 	{
 		private $monthRange	= null;
 		private $fullRange	= null;

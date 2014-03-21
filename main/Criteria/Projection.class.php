@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Criteria
 	**/
-	final class Projection extends StaticFactory
+	class Projection extends StaticFactory
 	{
 		/**
 		 * @return SumProjection

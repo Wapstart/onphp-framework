@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class TuringImage
+	class TuringImage
 	{
 		private $textColors			= null;
 		private $backgroundColors	= null;

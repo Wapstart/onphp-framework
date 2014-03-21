@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Filters
 	**/
-	final class UnserializeFilter extends BaseFilter
+	class UnserializeFilter extends BaseFilter
 	{
 		/**
 		 * @return UnserializeFilter

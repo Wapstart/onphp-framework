@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartColor extends BaseGoogleChartParameter
+	class GoogleChartColor extends BaseGoogleChartParameter
 	{
 		protected $name = 'chco';
 		

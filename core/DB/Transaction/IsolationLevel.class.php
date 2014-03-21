@@ -16,7 +16,7 @@
 	 * 
 	 * @ingroup Transaction
 	**/
-	final class IsolationLevel extends Enumeration
+	class IsolationLevel extends Enumeration
 	{
 		const READ_COMMITTED	= 0x01;
 		const READ_UNCOMMITTED	= 0x02;

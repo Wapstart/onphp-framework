@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ScopeSetter extends PrototypedSetter
+	class ScopeSetter extends PrototypedSetter
 	{
 		private $getter = null;
 		

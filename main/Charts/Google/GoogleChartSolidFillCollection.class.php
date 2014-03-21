@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartSolidFillCollection extends BaseGoogleChartParameter
+	class GoogleChartSolidFillCollection extends BaseGoogleChartParameter
 	{
 		private $fillers = array();
 		

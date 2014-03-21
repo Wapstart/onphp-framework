@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ObjectToDTOConverter extends DTOBuilder
+	class ObjectToDTOConverter extends DTOBuilder
 	{
 		/**
 		 * @return ObjectToDTOConverter

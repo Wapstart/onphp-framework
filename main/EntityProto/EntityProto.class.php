@@ -52,7 +52,7 @@
 			);
 		}
 		
-		final public function getFullFormMapping()
+		public function getFullFormMapping()
 		{
 			$result = $this->getFormMapping();
 			
@@ -62,7 +62,7 @@
 			return $result;
 		}
 		
-		final public function validate(
+		public function validate(
 			$object, $form, $previousObject = null
 		)
 		{
@@ -83,7 +83,7 @@
 			return $this->validateSelf($object, $form, $previousObject);
 		}
 		
-		final public function validateSelf(
+		public function validateSelf(
 			$object, $form, $previousObject = null
 		)
 		{
@@ -126,7 +126,7 @@
 			return empty($errors);
 		}
 		
-		final public function validateList(
+		public function validateList(
 			$objectsList, $formsList, $previousObjectsList = null
 		)
 		{
@@ -163,7 +163,7 @@
 			return $result;
 		}
 		
-		final public function createObject()
+		public function createObject()
 		{
 			$className = $this->className();
 			
@@ -175,7 +175,7 @@
 		 * 
 		 * @deprecated you should use PrototypedBuilder to make forms
 		**/
-		final public function makeForm()
+		public function makeForm()
 		{
 			return
 				$this->
@@ -189,7 +189,7 @@
 		/**
 		 * @return Form
 		**/
-		final public function attachPrimitives(Form $form)
+		public function attachPrimitives(Form $form)
 		{
 			foreach ($this->getFormMapping() as $primitive)
 				$form->add($primitive);
@@ -197,7 +197,7 @@
 			return $form;
 		}
 		
-		final public function getOwnPrimitive($name)
+		public function getOwnPrimitive($name)
 		{
 			$mapping = $this->getFormMapping();
 			
@@ -209,7 +209,7 @@
 			return $mapping[$name];
 		}
 		
-		final public function getPrimitive($name)
+		public function getPrimitive($name)
 		{
 			try {
 				$result = $this->getOwnPrimitive($name);

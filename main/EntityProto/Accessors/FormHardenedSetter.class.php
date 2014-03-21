@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class FormHardenedSetter extends FormMutator
+	class FormHardenedSetter extends FormMutator
 	{
 		public function set($name, $value)
 		{

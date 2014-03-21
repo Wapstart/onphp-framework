@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ArgumentParser extends Singleton
+	class ArgumentParser extends Singleton
 	{
 		private $form = null;
 		private $result = null;

@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class TextFileQueueBrowser implements MessageQueueBrowser
+	class TextFileQueueBrowser implements MessageQueueBrowser
 	{
 		private $queue = null;
 		

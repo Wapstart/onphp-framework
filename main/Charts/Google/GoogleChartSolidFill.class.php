@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartSolidFill extends BaseGoogleChartParameter
+	class GoogleChartSolidFill extends BaseGoogleChartParameter
 	{
 		protected static $paramName = 'chf';
 		

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class ChartLabelStyle
+	class ChartLabelStyle
 	{
 		private $type			= null;
 		private $color			= null;

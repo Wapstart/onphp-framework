@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup DB
 	**/
-	final class DBPool extends Singleton implements Instantiatable
+	class DBPool extends Singleton implements Instantiatable
 	{
 		private $default = null;
 		

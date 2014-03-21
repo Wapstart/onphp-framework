@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Logic
 	**/
-	final class DistanceBetweenPointsExpression implements LogicalObject, MappableObject
+	class DistanceBetweenPointsExpression implements LogicalObject, MappableObject
 	{
 		/**
 		 * @var Point|string 

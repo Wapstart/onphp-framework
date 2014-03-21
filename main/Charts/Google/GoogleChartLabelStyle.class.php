@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartLabelStyle extends BaseGoogleChartStyle
+	class GoogleChartLabelStyle extends BaseGoogleChartStyle
 	{
 		protected $name = 'chm';
 		

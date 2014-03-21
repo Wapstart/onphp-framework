@@ -16,7 +16,7 @@
 	 * 
 	 * @ingroup Transaction
 	**/
-	final class TransactionQueue extends BaseTransaction implements Query
+	class TransactionQueue extends BaseTransaction implements Query
 	{
 		private $queue = null;
 		

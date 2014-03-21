@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	 */
-	final class BulkInsertQuery extends InsertQuery
+	class BulkInsertQuery extends InsertQuery
 	{
 		/**
 		 * Rows

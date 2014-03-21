@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Helpers
 	**/
-	final class RequestType extends Enumeration
+	class RequestType extends Enumeration
 	{
 		const GET		= 1;
 		const POST		= 2;

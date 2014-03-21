@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class RedirectToView extends RedirectView
+	class RedirectToView extends RedirectView
 	{
 		private $prefix = null;
 		private $suffix = null;

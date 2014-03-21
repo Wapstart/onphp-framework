@@ -12,7 +12,7 @@
 	/**
 	 *
 	**/
-	final class PinbedMemcached extends Memcached
+	class PinbedMemcached extends Memcached
 	{
 		protected $host;
 		protected $port;

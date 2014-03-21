@@ -13,7 +13,7 @@
 	/**
 	 * @ingroup Http
 	**/
-	final class CurlHttpClient implements HttpClient
+	class CurlHttpClient implements HttpClient
 	{
 		private $options		= array();
 		

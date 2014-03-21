@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartSolidFillType extends Enumeration
+	class GoogleChartSolidFillType extends Enumeration
 	{
 		const CHART_AREA		= 0x1;
 		const BACKGROUND		= 0x2;

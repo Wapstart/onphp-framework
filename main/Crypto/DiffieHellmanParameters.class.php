@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Crypto
 	**/
-	final class DiffieHellmanParameters
+	class DiffieHellmanParameters
 	{
 		private $gen		= null;
 		private $modulus	= null;

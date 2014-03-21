@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Crypto
 	**/
-	final class Crypter
+	class Crypter
 	{
 		private $crResource = null;
 		private $keySize	= null;

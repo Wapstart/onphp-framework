@@ -9,7 +9,7 @@
  *                                                                          *
  ****************************************************************************/
 
-	final class OqlGroupByParser extends OqlParser
+	class OqlGroupByParser extends OqlParser
 	{
 		const CLASS_NAME = 'GroupByPropertyProjection';
 		

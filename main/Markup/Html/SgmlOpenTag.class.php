@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Html
 	**/
-	final class SgmlOpenTag extends SgmlTag
+	class SgmlOpenTag extends SgmlTag
 	{
 		private $attributes	= array();
 		private $empty		= false;

@@ -17,7 +17,7 @@
 	 * 
 	 * @ingroup DAOs
 	**/
-	final class SmartDaoWorker extends TransparentDaoWorker
+	class SmartDaoWorker extends TransparentDaoWorker
 	{
 		private $indexKey	= null;
 		

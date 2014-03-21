@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ScopeGetter extends PrototypedGetter
+	class ScopeGetter extends PrototypedGetter
 	{
 		public function get($name)
 		{

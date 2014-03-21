@@ -33,7 +33,7 @@
 		/**
 		 * @return Identifier
 		**/
-		final public function obtainSequence($sequence)
+		public function obtainSequence($sequence)
 		{
 			$id = Identifier::create();
 			
@@ -42,7 +42,7 @@
 			return $id;
 		}
 		
-		final public function query(Query $query)
+		public function query(Query $query)
 		{
 			$result = $this->queryRaw(
 				$query->toDialectString($this->getDialect())

@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class FormImporter extends FormMutator
+	class FormImporter extends FormMutator
 	{
 		public function set($name, $value)
 		{

@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DTOToScopeConverter extends PrototypedBuilder
+	class DTOToScopeConverter extends PrototypedBuilder
 	{
 		/**
 		 * @return DTOToScopeConverter

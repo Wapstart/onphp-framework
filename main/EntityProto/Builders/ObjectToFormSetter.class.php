@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ObjectToFormSetter extends FormBuilder
+	class ObjectToFormSetter extends FormBuilder
 	{
 		/**
 		 * @return ObjectToFormSetter

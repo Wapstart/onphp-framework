@@ -8,7 +8,7 @@
 	/**
 	 * @ingroup Primitives
 	 **/
-	final class PrimitiveClassByMethod extends PrimitiveClass
+	class PrimitiveClassByMethod extends PrimitiveClass
 	{
 		private $methodName	= 'create';
 

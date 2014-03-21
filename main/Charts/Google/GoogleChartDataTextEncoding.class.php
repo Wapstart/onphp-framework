@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartDataTextEncoding
+	class GoogleChartDataTextEncoding
 		extends BaseGoogleChartDataEncoding
 		implements GoogleChartDataEncoding
 	{

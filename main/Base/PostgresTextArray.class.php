@@ -14,7 +14,7 @@
 	 *
 	 * @ingroup Helpers
 	**/
-	final class PostgresTextArray extends PostgresArray
+	class PostgresTextArray extends PostgresArray
 	{
 		/**
 		 * Create PostgresTextArray object by array or raw string

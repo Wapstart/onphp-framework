@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterChainRule extends RouterBaseRule
+	class RouterChainRule extends RouterBaseRule
 	{
 		protected $routes		= array();
 		protected $separators	= array();

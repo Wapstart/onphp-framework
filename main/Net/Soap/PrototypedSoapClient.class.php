@@ -45,7 +45,7 @@
 		
 		protected $soapClient	= null;
 		
-		final public static function convertSoapFault(SoapFault $e)
+		public static function convertSoapFault(SoapFault $e)
 		{
 			$r = new ReflectionObject($e);
 			

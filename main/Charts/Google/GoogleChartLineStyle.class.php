@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartLineStyle extends BaseGoogleChartStyle
+	class GoogleChartLineStyle extends BaseGoogleChartStyle
 	{
 		protected $name = 'chls';
 		

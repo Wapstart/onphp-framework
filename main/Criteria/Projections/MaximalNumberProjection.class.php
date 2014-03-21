@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Projections
 	**/
-	final class MaximalNumberProjection extends AggregateProjection
+	class MaximalNumberProjection extends AggregateProjection
 	{
 		public function getFunctionName()
 		{

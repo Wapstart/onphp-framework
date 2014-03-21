@@ -133,7 +133,7 @@
 			return self::fetchEncapsulants($object);
 		}
 		
-		final public function getPropertyList()
+		public function getPropertyList()
 		{
 			static $lists = array();
 			
@@ -146,7 +146,7 @@
 			return $lists[$className];
 		}
 		
-		final public function getExpandedPropertyList($prefix = null)
+		public function getExpandedPropertyList($prefix = null)
 		{
 			static $lists = array();
 			
