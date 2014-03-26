@@ -30,7 +30,7 @@
 		public function queryRaw($queryString)
 		{
 			$queryLabel = strtolower(substr($queryString, 0, 5));
-			$this->startTimer($queryLabel);
+			$this->startTimer($queryLabel, $queryString);
 			
 			try {
 				$result = parent::queryRaw($queryString);
