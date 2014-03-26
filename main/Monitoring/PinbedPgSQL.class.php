@@ -29,7 +29,7 @@
 
 		public function queryRaw($queryString)
 		{
-			$queryLabel = substr($queryString, 0, 5);
+			$queryLabel = strtolower(substr($queryString, 0, 5));
 			$this->startTimer($queryLabel);
 			
 			try {
@@ -43,14 +43,27 @@
 			return $result;
 		}
 
-		protected function startTimer($methodName)
+		protected function startTimer($methodName, $queryString = '')
 		{
+			$tags = array(
+				'group'	=> 'db::'.$methodName,
+				'host'	=> $this->hostname.':'.$this->port,
+			);
+
+			if (in_array($methodName, array('inser', 'updat'))) {
+				$tableName = 'unknown';
+				$matches = array();
+				if ($methodName == 'inser' && preg_match('/^insert[\s]+into[\s]+"?([a-zA-Z0-9_]+)/ui', $queryString, $matches)) {
+					$tableName = $matches[1];
+				} elseif ($methodName == 'updat' && preg_match('/^update[\s]+"?([a-zA-Z0-9_]+)/ui', $queryString, $matches)) {
+					$tableName = $matches[1];
+				}
+				$tags['table'] = $tableName;
+			}
+
 			PinbaClient::me()->timerStart(
 				'pg_sql_'.$this->hostname.'_'.$this->port.'_'.$methodName,
-				array(
-					'group'	=> 'db::'.strtolower($methodName),
-					'host'	=> $this->hostname.':'.$this->port,
-				)
+				$tags
 			);
 		}
 
