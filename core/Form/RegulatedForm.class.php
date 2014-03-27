@@ -10,7 +10,7 @@
  ***************************************************************************/
 
 	/**
-	 * Rules support for final Form.
+	 * Rules support for Form.
 	 * 
 	 * @ingroup Form
 	 * @ingroup Module

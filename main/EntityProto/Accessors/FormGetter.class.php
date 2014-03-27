@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class FormGetter extends PrototypedGetter
+	class FormGetter extends PrototypedGetter
 	{
 		public function __construct(EntityProto $proto, &$object)
 		{

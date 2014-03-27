@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Calendar
 	**/
-	final class CalendarWeek
+	class CalendarWeek
 	{
 		private $days = array();
 		

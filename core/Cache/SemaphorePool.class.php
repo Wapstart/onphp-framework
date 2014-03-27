@@ -19,7 +19,7 @@
 	 * 
 	 * @ingroup Lockers
 	**/
-	final class SemaphorePool extends BaseLocker implements Instantiatable
+	class SemaphorePool extends BaseLocker implements Instantiatable
 	{
 		private static $lockerName	= 'DirectoryLocker';
 		private static $locker		= null;

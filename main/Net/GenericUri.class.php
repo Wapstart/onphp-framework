@@ -41,7 +41,7 @@
 		/**
 		 * @return GenericUri
 		**/
-		final public function parse($uri, $guessClass = false)
+		public function parse($uri, $guessClass = false)
 		{
 			$schemePattern = '([^:/?#]+):';
 			$authorityPattern = '(//([^/?#]*))';
@@ -103,7 +103,7 @@
 		 * @see http://tools.ietf.org/html/rfc3986#section-5.2.2
 		 * @return GenericUri
 		**/
-		final public function transform(GenericUri $reference, $strict = true)
+		public function transform(GenericUri $reference, $strict = true)
 		{
 			if ($this->getScheme() === null)
 				throw new WrongStateException(
@@ -751,7 +751,7 @@
 	/**
 	 * @ingroup Net
 	**/
-	final class PercentEncodingNormalizator
+	class PercentEncodingNormalizator
 	{
 		private $unreservedPartChars = null;
 		

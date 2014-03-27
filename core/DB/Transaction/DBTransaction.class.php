@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Transaction
 	**/
-	final class DBTransaction extends BaseTransaction
+	class DBTransaction extends BaseTransaction
 	{
 		private $started	= false;
 		

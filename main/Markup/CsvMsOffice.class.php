@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class CsvMsOffice extends Csv
+	class CsvMsOffice extends Csv
 	{
 		const SEPARATOR = "\t";
 		const CODE_PAGE_TO = 'UTF-16';

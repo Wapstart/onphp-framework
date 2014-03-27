@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartDataScaling
+	class GoogleChartDataScaling
 	{
 		private static $paramName = 'chds';
 		

@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Transaction
 	**/
-	final class FakeTransaction extends BaseTransaction
+	class FakeTransaction extends BaseTransaction
 	{
 		/**
 		 * @return FakeTransaction

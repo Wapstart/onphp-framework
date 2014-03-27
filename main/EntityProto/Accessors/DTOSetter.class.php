@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DTOSetter extends PrototypedSetter
+	class DTOSetter extends PrototypedSetter
 	{
 		private $getter = null;
 		

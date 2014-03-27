@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Form
 	**/
-	final class MappedForm
+	class MappedForm
 	{
 		private $form = null;
 		private $type = null;

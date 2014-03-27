@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterTreeRule extends RouterBaseRule
+	class RouterTreeRule extends RouterBaseRule
 	{
 		protected $routes;
 

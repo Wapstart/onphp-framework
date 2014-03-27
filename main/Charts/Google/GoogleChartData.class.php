@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartData extends BaseGoogleChartData
+	class GoogleChartData extends BaseGoogleChartData
 	{
 		protected $name = 'chd';
 		

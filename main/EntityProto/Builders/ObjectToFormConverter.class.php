@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ObjectToFormConverter extends FormBuilder
+	class ObjectToFormConverter extends FormBuilder
 	{
 		/**
 		 * @return ObjectToFormConverter

@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class TextFileReceiver implements MessageQueueReceiver
+	class TextFileReceiver implements MessageQueueReceiver
 	{
 		private $queue	= null;
 		private $stream	= null;

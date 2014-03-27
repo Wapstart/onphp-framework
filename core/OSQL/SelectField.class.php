@@ -15,7 +15,7 @@
 	 * @ingroup OSQL
 	 * @ingroup Module
 	**/
-	final class SelectField extends FieldTable implements Aliased
+	class SelectField extends FieldTable implements Aliased
 	{
 		private $alias = null;
 		

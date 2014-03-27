@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class HttpRequest
+	class HttpRequest
 	{
 		// contains all variables from $_GET
 		private $get 		= array();

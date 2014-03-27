@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Helpers
 	**/
-	final class IntegerSet extends Range
+	class IntegerSet extends Range
 	{
 		public static function create(
 			$min = PrimitiveInteger::SIGNED_MIN,

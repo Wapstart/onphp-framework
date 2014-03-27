@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Cache
 	**/
-	final class RubberFileSystem extends CachePeer
+	class RubberFileSystem extends CachePeer
 	{
 		private $directory	= null;
 		

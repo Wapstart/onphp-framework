@@ -42,7 +42,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function log(LogLevel $level, $message)
+		public function log(LogLevel $level, $message)
 		{
 			$this->logRecord(
 				LogRecord::create()->
@@ -56,7 +56,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function logRecord(LogRecord $record)
+		public function logRecord(LogRecord $record)
 		{
 			$levelMatches =
 				$this->level === null
@@ -79,7 +79,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function severe($message)
+		public function severe($message)
 		{
 			$this->log(LogLevel::severe(), $message);
 			
@@ -89,7 +89,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function warning($message)
+		public function warning($message)
 		{
 			$this->log(LogLevel::warning(), $message);
 			
@@ -99,7 +99,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function info($message)
+		public function info($message)
 		{
 			$this->log(LogLevel::info(), $message);
 			
@@ -109,7 +109,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function config($message)
+		public function config($message)
 		{
 			$this->log(LogLevel::config(), $message);
 			
@@ -119,7 +119,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function fine($message)
+		public function fine($message)
 		{
 			$this->log(LogLevel::fine(), $message);
 			
@@ -129,7 +129,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function finer($message)
+		public function finer($message)
 		{
 			$this->log(LogLevel::finer(), $message);
 			
@@ -139,7 +139,7 @@
 		/**
 		 * @return Logger
 		**/
-		final public function finest($message)
+		public function finest($message)
 		{
 			$this->log(LogLevel::finest(), $message);
 			

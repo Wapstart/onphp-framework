@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ObjectSetter extends PrototypedSetter
+	class ObjectSetter extends PrototypedSetter
 	{
 		private $getter = null;
 		

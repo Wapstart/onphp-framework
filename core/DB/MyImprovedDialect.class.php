@@ -17,7 +17,7 @@
 	 * 
 	 * @ingroup DB
 	**/
-	final class MyImprovedDialect extends MyDialect
+	class MyImprovedDialect extends MyDialect
 	{
 		/**
 		 * @return MyImprovedDialect

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartLegend extends BaseGoogleChartParameter
+	class GoogleChartLegend extends BaseGoogleChartParameter
 	{
 		protected $name = 'chdl';
 		

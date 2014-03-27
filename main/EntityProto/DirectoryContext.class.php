@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DirectoryContext
+	class DirectoryContext
 	{
 		private $map = array();
 		private $reverseMap = array();

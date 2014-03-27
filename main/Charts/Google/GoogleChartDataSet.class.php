@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartDataSet
+	class GoogleChartDataSet
 	{
 		private $data = array();
 		

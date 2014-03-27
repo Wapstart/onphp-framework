@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class DebugPhpView extends SimplePhpView
+	class DebugPhpView extends SimplePhpView
 	{
 		/**
 		 * @return DebugPhpView

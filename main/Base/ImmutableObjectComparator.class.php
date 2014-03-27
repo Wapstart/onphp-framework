@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ImmutableObjectComparator extends Singleton
+	class ImmutableObjectComparator extends Singleton
 		implements Comparator, Instantiatable
 	{
 		public static function me()

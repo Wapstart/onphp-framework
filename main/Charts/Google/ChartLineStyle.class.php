@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class ChartLineStyle
+	class ChartLineStyle
 	{
 		private $thickness 			= 1;
 		private $lineSegmentLength 	= 1;

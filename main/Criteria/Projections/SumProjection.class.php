@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Projections
 	**/
-	final class SumProjection extends AggregateProjection
+	class SumProjection extends AggregateProjection
 	{
 		public function getFunctionName()
 		{

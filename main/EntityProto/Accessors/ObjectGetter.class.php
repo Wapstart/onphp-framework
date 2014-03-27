@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ObjectGetter extends PrototypedGetter
+	class ObjectGetter extends PrototypedGetter
 	{
 		public function get($name)
 		{

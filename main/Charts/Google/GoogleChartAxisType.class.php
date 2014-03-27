@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartAxisType extends Enumeration
+	class GoogleChartAxisType extends Enumeration
 	{
 		const X	= 0x1;
 		const Y	= 0x2;

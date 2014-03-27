@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterHostnameRule extends RouterBaseRule
+	class RouterHostnameRule extends RouterBaseRule
 	{
 		const SCHEME_HTTP			= 'http';
 		const SCHEME_HTTPS			= 'https';

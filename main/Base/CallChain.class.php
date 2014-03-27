@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Helpers
 	**/
-	final class CallChain
+	class CallChain
 	{
 		private $chain = array();
 		

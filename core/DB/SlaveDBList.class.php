@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class SlaveDBList
+	class SlaveDBList
 	{
 		private $pool = array();
 		private $weightGrade = array();

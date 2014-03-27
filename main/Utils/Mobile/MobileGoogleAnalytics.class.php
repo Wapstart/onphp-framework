@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Utils
 	**/
-	final class MobileGoogleAnalytics extends Singleton
+	class MobileGoogleAnalytics extends Singleton
 	{
 		const VERSION		= '4.4sh';
 		const COOKIE_NAME	= '__utmmobile';

@@ -13,7 +13,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class ProxyController implements Controller
+	class ProxyController implements Controller
 	{
 		private $innerController	= null;
 		private $request			= null;

@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ObjectToDirectoryBinder extends DirectoryBuilder
+	class ObjectToDirectoryBinder extends DirectoryBuilder
 	{
 		/**
 		 * @return ObjectToFormConverter

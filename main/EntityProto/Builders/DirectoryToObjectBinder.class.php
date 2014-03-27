@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DirectoryToObjectBinder extends ObjectBuilder
+	class DirectoryToObjectBinder extends ObjectBuilder
 	{
 		private $identityMap = null;
 		

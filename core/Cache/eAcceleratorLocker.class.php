@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Lockers
 	**/
-	final class eAcceleratorLocker extends BaseLocker
+	class eAcceleratorLocker extends BaseLocker
 	{
 		public function get($key)
 		{

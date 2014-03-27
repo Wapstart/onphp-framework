@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleGridedLineChart extends GoogleNormalizedLineChart
+	class GoogleGridedLineChart extends GoogleNormalizedLineChart
 	{
 		private $grid = null;
 		

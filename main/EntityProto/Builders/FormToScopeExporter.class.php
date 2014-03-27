@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class FormToScopeExporter extends ObjectBuilder
+	class FormToScopeExporter extends ObjectBuilder
 	{
 		/**
 		 * @return FormToObjectConverter

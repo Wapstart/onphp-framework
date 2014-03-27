@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Criteria
 	**/
-	final class PropertyPath
+	class PropertyPath
 	{
 		private $root		= null;
 		private $path		= null;

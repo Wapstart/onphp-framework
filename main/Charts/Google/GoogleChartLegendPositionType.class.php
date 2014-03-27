@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartLegendPositionType extends Enumeration
+	class GoogleChartLegendPositionType extends Enumeration
 	{
 		const BOTTOM	= 0x1;
 		const TOP		= 0x2;

@@ -12,5 +12,5 @@
 	/**
 	 * @ingroup Primitives
 	**/
-	final class PrimitiveAnyType extends BasePrimitive {/* nop */}
+	class PrimitiveAnyType extends BasePrimitive {/* nop */}
 ?>

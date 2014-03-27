@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Primitives
 	**/
-	final class PrimitiveListOfPrimitives extends BasePrimitive
+	class PrimitiveListOfPrimitives extends BasePrimitive
 	{
 		private $failOnFirst = true;
 		

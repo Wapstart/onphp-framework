@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterStaticRule extends RouterBaseRule
+	class RouterStaticRule extends RouterBaseRule
 	{
 		protected $route	= null;
 		

@@ -14,7 +14,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class LabelStyleType extends Enumeration
+	class LabelStyleType extends Enumeration
 	{
 		const FLOAT				= 0x1;
 		const PERCENT			= 0x2;

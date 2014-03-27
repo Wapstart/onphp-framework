@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class RouterUrlHelper extends StaticFactory
+	class RouterUrlHelper extends StaticFactory
 	{
 		/**
 		 * @return string

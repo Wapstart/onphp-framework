@@ -11,7 +11,7 @@
 
 	abstract class DTOMessage implements PrototypedEntity
 	{
-		final public function makeDto()
+		public function makeDto()
 		{
 			return
 				ObjectToDTOConverter::create(

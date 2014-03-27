@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Projections
 	**/
-	final class HavingProjection implements ObjectProjection
+	class HavingProjection implements ObjectProjection
 	{
 		private $logic = null;
 		

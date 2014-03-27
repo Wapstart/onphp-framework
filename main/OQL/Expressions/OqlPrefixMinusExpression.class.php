@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OQL
 	**/
-	final class OqlPrefixMinusExpression extends OqlQueryExpression
+	class OqlPrefixMinusExpression extends OqlQueryExpression
 	{
 		const CLASS_NAME = 'PrefixUnaryExpression';
 		

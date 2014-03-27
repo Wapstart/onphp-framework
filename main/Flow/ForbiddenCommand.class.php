@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Flow
 	**/
-	final class ForbiddenCommand implements EditorCommand
+	class ForbiddenCommand implements EditorCommand
 	{
 		/**
 		 * @return ForbiddenCommand

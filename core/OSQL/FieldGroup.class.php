@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class FieldGroup implements DialectString
+	class FieldGroup implements DialectString
 	{
 		private $list = array();
 		

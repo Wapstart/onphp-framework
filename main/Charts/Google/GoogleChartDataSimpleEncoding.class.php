@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartDataSimpleEncoding
+	class GoogleChartDataSimpleEncoding
 		extends BaseGoogleChartDataEncoding
 	{
 		protected $name = 's:';

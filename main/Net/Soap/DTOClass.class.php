@@ -11,7 +11,7 @@
 
 	abstract class DTOClass implements PrototypedEntity
 	{
-		final public function makeObject(Form $form)
+		public function makeObject(Form $form)
 		{
 			return
 				FormToObjectConverter::create($this->entityProto())->
@@ -21,7 +21,7 @@
 		/**
 		 * @return Form
 		**/
-		final public function toForm()
+		public function toForm()
 		{
 			return
 				ObjectToFormConverter::create(

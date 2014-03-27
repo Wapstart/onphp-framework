@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DTOToFormImporter extends FormBuilder
+	class DTOToFormImporter extends FormBuilder
 	{
 		/**
 		 * @return DTOToFormImporter

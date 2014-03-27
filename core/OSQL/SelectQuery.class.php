@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class SelectQuery
+	class SelectQuery
 		extends QuerySkeleton
 		implements Named, JoinCapableQuery, Aliased
 	{

@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DateObjectComparator extends Singleton
+	class DateObjectComparator extends Singleton
 		implements Comparator, Instantiatable
 	{
 		public static function me()

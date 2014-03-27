@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ScopeToFormImporter extends FormBuilder
+	class ScopeToFormImporter extends FormBuilder
 	{
 		/**
 		 * @return ScopeToFormImporter

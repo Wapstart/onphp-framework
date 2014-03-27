@@ -15,7 +15,7 @@
 	 * @ingroup Base
 	 * @ingroup Module
 	**/
-	final class Ternary implements Stringable
+	class Ternary implements Stringable
 	{
 		private $trinity = null;	// ;-)
 		

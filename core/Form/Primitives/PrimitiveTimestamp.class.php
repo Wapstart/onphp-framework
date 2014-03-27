@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Primitives
 	**/
-	final class PrimitiveTimestamp extends PrimitiveDate
+	class PrimitiveTimestamp extends PrimitiveDate
 	{
 		const HOURS		= 'hrs';
 		const MINUTES	= 'min';

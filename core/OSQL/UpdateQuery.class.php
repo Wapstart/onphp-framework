@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class UpdateQuery
+	class UpdateQuery
 		extends InsertOrUpdateQuery
 		implements JoinCapableQuery
 	{

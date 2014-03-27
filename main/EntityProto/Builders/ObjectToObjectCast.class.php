@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class ObjectToObjectCast extends ObjectBuilder
+	class ObjectToObjectCast extends ObjectBuilder
 	{
 		/**
 		 * @return ObjectToObjectCast

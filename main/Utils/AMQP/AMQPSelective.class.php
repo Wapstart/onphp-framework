@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class AMQPSelective extends Singleton implements AMQPInterface
+	class AMQPSelective extends Singleton implements AMQPInterface
 	{
 		/**
 		 * @var array of AMQPChannelInterface instances

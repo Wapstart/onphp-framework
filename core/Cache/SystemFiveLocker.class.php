@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Lockers
 	**/
-	final class SystemFiveLocker extends BaseLocker
+	class SystemFiveLocker extends BaseLocker
 	{
 		public function get($key)
 		{

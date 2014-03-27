@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-final class AMQPPeclIncomingMessageAdapter extends StaticFactory
+class AMQPPeclIncomingMessageAdapter extends StaticFactory
 {
 	/**
 	 * @param AMQPEnvelope $incoming

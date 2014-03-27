@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartAxisLabel extends GoogleChartLabel
+	class GoogleChartAxisLabel extends GoogleChartLabel
 	{
 		protected static $paramName = 'chxl';
 		

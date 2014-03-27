@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class WavesBackgroundDrawer extends BackgroundDrawer
+	class WavesBackgroundDrawer extends BackgroundDrawer
 	{
 		const MIN_WAVE_DISTANCE	= 8;
 		const MAX_WAVE_DISTANCE	= 20;

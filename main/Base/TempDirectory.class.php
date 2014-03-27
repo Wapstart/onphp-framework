@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class TempDirectory
+	class TempDirectory
 	{
 		private $path = null;
 		

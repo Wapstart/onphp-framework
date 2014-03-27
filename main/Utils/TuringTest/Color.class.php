@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class Color implements Stringable
+	class Color implements Stringable
 	{
 		private	$red	= 0;
 		private	$green	= 0;

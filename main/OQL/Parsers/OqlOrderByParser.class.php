@@ -9,7 +9,7 @@
  *                                                                          *
  ****************************************************************************/
 
-	final class OqlOrderByParser extends OqlParser
+	class OqlOrderByParser extends OqlParser
 	{
 		/**
 		 * @return OqlOrderByParser

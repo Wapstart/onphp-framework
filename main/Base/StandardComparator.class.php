@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class StandardComparator extends Singleton
+	class StandardComparator extends Singleton
 		implements Comparator, Instantiatable
 	{
  		private $cmpFunction = 'strcmp';

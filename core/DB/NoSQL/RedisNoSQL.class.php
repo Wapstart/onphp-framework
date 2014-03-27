@@ -9,7 +9,7 @@
 	*                                                                         *
 	***************************************************************************/
 
-	final class RedisNoSQL extends CachePeer implements ListGenerator
+	class RedisNoSQL extends CachePeer implements ListGenerator
 	{
 		const DEFAULT_HOST = 'localhost';
 		const DEFAULT_PORT = '6379';

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartSize extends BaseGoogleChartParameter
+	class GoogleChartSize extends BaseGoogleChartParameter
 	{
 		protected $name = 'chs';
 		

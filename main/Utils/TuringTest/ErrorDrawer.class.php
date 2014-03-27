@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class ErrorDrawer
+	class ErrorDrawer
 	{
 		const FONT_SIZE	= 4;
 		

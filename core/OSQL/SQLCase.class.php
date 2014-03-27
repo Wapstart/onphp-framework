@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class SQLCase extends Castable implements MappableObject
+	class SQLCase extends Castable implements MappableObject
 	{
 		private $whenList	= array();
 		private $thenList	= array();

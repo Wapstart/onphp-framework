@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DirectorySetter extends DirectoryMutator
+	class DirectorySetter extends DirectoryMutator
 	{
 		public function set($name, $value)
 		{

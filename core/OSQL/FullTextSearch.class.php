@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class FullTextSearch extends FullText
+	class FullTextSearch extends FullText
 	{
 		public function toDialectString(Dialect $dialect)
 		{

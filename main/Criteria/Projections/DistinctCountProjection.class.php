@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Projections
 	**/
-	final class DistinctCountProjection extends CountProjection
+	class DistinctCountProjection extends CountProjection
 	{
 		/**
 		 * @return SQLFunction

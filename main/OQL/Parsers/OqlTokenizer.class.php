@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OQL
 	**/
-	final class OqlTokenizer
+	class OqlTokenizer
 	{
 		private $tokens			= array();
 		private $tokensCount	= 0;

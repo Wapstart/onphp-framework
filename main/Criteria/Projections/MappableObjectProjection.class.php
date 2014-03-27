@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Projections
 	**/
-	final class MappableObjectProjection implements ObjectProjection
+	class MappableObjectProjection implements ObjectProjection
 	{
 		private $mappable	= null;
 		private $alias		= null;

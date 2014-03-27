@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Geometry
 	**/
-	final class Polygon implements Stringable, DialectString
+	class Polygon implements Stringable, DialectString
 	{
 		/**
 		 * @var Point[] 

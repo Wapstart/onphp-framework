@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class TransparentFile
+	class TransparentFile
 	{
 		private $path		= null;
 		private $rawData	= null;

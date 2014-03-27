@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Helpers
 	**/
-	final class ImageType extends Enumeration
+	class ImageType extends Enumeration
 	{
 		const IMAGETYPE_PJPEG	= 100;
 		

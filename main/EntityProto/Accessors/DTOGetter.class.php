@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class DTOGetter extends PrototypedGetter
+	class DTOGetter extends PrototypedGetter
 	{
 		private $soapDto	= true;
 		

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Primitives
 	**/
-	final class PrimitiveHttpUrl extends PrimitiveString
+	class PrimitiveHttpUrl extends PrimitiveString
 	{
 		public function import($scope)
 		{

@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Cache
 	**/
-	final class WatermarkedPeer extends SelectivePeer
+	class WatermarkedPeer extends SelectivePeer
 	{
 		private $peer		= null;
 		private $watermark	= null;

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class LinearStringDrawer extends TextDrawer
+	class LinearStringDrawer extends TextDrawer
 	{
 		/**
 		 * @return LinearStringDrawer

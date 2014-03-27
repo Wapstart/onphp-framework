@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class CodeGenerator
+	class CodeGenerator
 	{
 		private	$length				= null;
 		

@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Cache
 	**/
-	final class RuntimeMemory extends CachePeer
+	class RuntimeMemory extends CachePeer
 	{
 		private $cache = array();
 		

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Projections
 	**/
-	final class AverageNumberProjection extends AggregateProjection
+	class AverageNumberProjection extends AggregateProjection
 	{
 		public function getFunctionName()
 		{

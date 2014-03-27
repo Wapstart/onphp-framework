@@ -14,7 +14,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartLabelStyleNumberType
+	class GoogleChartLabelStyleNumberType
 		extends BaseGoogleChartLabelStyleType
 	{
 		protected $name 			= 'N';

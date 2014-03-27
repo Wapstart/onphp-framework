@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Filters
 	**/
-	final class WordSplitterFilter implements Filtrator
+	class WordSplitterFilter implements Filtrator
 	{
 		private $maxWordLength 	= 25;
 		private $delimer 		= '&#x200B;';

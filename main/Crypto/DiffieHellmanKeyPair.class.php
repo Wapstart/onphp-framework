@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Crypto
 	**/
-	final class DiffieHellmanKeyPair implements KeyPair
+	class DiffieHellmanKeyPair implements KeyPair
 	{
 		private $private	= null;
 		private $public		= null;

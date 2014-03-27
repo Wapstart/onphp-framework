@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class CellBackgroundDrawer extends BackgroundDrawer
+	class CellBackgroundDrawer extends BackgroundDrawer
 	{
 		private $step = null;
 	

@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Filters
 	**/
-	final class UnTypographizer extends BaseFilter
+	class UnTypographizer extends BaseFilter
 	{
 		private static $symbols =
 			array(

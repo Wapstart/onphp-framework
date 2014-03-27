@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Logic
 	**/
-	final class EqGeometricObjectsExpression implements LogicalObject, MappableObject
+	class EqGeometricObjectsExpression implements LogicalObject, MappableObject
 	{
 		private $left  = null;
 		private $right = null;

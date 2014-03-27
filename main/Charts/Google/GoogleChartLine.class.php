@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup GoogleChart
 	**/
-	final class GoogleChartLine extends GoogleChartPiece
+	class GoogleChartLine extends GoogleChartPiece
 	{
 		private $style 		= null;
 		private $labelStyle = null;

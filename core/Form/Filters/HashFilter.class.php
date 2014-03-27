@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Filters
 	**/
-	final class HashFilter implements Filtrator
+	class HashFilter implements Filtrator
 	{
 		private $binary = false;
 		

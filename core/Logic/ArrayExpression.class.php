@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Logic
 	**/
-	final class ArrayExpression extends StaticFactory
+	class ArrayExpression extends StaticFactory
 	{
 		const EQUAL				= '=';
 		const NOT_EQUAL			= '<>';

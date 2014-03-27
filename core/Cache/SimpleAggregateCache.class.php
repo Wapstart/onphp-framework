@@ -15,7 +15,7 @@
 	 * 
 	 * @ingroup Cache
 	**/
-	final class SimpleAggregateCache extends AggregateCache
+	class SimpleAggregateCache extends AggregateCache
 	{
 		private $peerAmount	= null;
 		private $labels		= null;

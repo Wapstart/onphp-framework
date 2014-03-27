@@ -9,7 +9,7 @@
  *                                                                         *
  ***************************************************************************/
 
-	final class TextFileSender implements MessageQueueSender
+	class TextFileSender implements MessageQueueSender
 	{
 		private $queue	= null;
 		private $stream	= null;

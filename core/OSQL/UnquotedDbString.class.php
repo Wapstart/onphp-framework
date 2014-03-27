@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OSQL
 	**/
-	final class UnquotedDbString implements DialectString
+	class UnquotedDbString implements DialectString
 	{
 		private $string = null;
 		

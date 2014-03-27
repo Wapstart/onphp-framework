@@ -16,7 +16,7 @@
 	 * 
 	 * @ingroup Transaction
 	**/
-	final class AccessMode extends Enumeration
+	class AccessMode extends Enumeration
 	{
 		const READ_ONLY		= 0x01;
 		const READ_WRITE	= 0x02;

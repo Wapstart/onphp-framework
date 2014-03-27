@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup Turing
 	**/
-	final class ColorArray
+	class ColorArray
 	{
 		private $colors = array();
 		

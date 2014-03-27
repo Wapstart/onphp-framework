@@ -12,7 +12,7 @@
 	/**
 	 * @ingroup OQL
 	**/
-	final class OQL extends StaticFactory
+	class OQL extends StaticFactory
 	{
 		/**
 		 * @return OqlSelectQuery

@@ -14,7 +14,7 @@
 	 * 
 	 * @ingroup Logic
 	**/
-	final class LogicalBetween implements LogicalObject, MappableObject
+	class LogicalBetween implements LogicalObject, MappableObject
 	{
 		private $field  = null;
 		private $left   = null;

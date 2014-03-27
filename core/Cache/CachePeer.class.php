@@ -155,17 +155,17 @@
 			return $out;
 		}
 		
-		final public function set($key, $value, $expires = Cache::EXPIRES_MEDIUM)
+		public function set($key, $value, $expires = Cache::EXPIRES_MEDIUM)
 		{
 			return $this->store('set', $key, $value, $expires);
 		}
 		
-		final public function add($key, $value, $expires = Cache::EXPIRES_MEDIUM)
+		public function add($key, $value, $expires = Cache::EXPIRES_MEDIUM)
 		{
 			return $this->store('add', $key, $value, $expires);
 		}
 		
-		final public function replace($key, $value, $expires = Cache::EXPIRES_MEDIUM)
+		public function replace($key, $value, $expires = Cache::EXPIRES_MEDIUM)
 		{
 			return $this->store('replace', $key, $value, $expires);
 		}

@@ -10,7 +10,7 @@
  ***************************************************************************/
 
 
-	final class TextMessage implements Message
+	class TextMessage implements Message
 	{
 		private $timestamp	= null;
 		private $text		= null;
