@@ -110,7 +110,7 @@
 			return $result;
 		}
 
-		protected function startTimer($methodName, $key = '')
+		protected function startTimer($methodName, $key = null)
 		{
 			PinbaClient::me()->timerStart(
 				'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$methodName,
@@ -121,7 +121,7 @@
 			);
 		}
 
-		protected function stopTimer($methodName, $key = '')
+		protected function stopTimer($methodName, $key = null)
 		{
 			PinbaClient::me()->timerStop(
 				'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$methodName
