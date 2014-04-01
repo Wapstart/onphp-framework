@@ -28,49 +28,49 @@
 		
 		public function append($key, $data)
 		{
-			$this->startTimer(__FUNCTION__);
+			$this->startTimer(__FUNCTION__, $key);
 			$result = parent::append($key, $data);
-			$this->stopTimer(__FUNCTION__);
+			$this->stopTimer(__FUNCTION__, $key);
 			return $result;
 		}
 		
 		public function decrement($key, $value)
 		{
-			$this->startTimer(__FUNCTION__);
+			$this->startTimer(__FUNCTION__, $key);
 			$result = parent::decrement($key, $value);
-			$this->stopTimer(__FUNCTION__);
+			$this->stopTimer(__FUNCTION__, $key);
 			return $result;
 		}
 		
 		public function delete($index)
 		{
-			$this->startTimer(__FUNCTION__);
+			$this->startTimer(__FUNCTION__, $index);
 			$result = parent::delete($index);
-			$this->stopTimer(__FUNCTION__);
+			$this->stopTimer(__FUNCTION__, $index);
 			return $result;
 		}
 		
 		public function get($index)
 		{
-			$this->startTimer(__FUNCTION__);
+			$this->startTimer(__FUNCTION__, $index);
 			$result = parent::get($index);
-			$this->stopTimer(__FUNCTION__);
+			$this->stopTimer(__FUNCTION__, $index);
 			return $result;
 		}
 		
 		public function getc($index, &$cas)
 		{
-			$this->startTimer(__FUNCTION__);
+			$this->startTimer(__FUNCTION__, $index);
 			$result = parent::getc($index, $cas);
-			$this->stopTimer(__FUNCTION__);
+			$this->stopTimer(__FUNCTION__, $index);
 			return $result;
 		}
 		
 		public function cas($key, $value, $expires = Cache::EXPIRES_MEDIUM, $cas)
 		{
-			$this->startTimer(__FUNCTION__);
+			$this->startTimer(__FUNCTION__, $key);
 			$result = parent::cas($key, $value, $expires, $cas);
-			$this->stopTimer(__FUNCTION__);
+			$this->stopTimer(__FUNCTION__, $key);
 			return $result;
 		}
 		
@@ -85,9 +85,9 @@
 		
 		public function increment($key, $value)
 		{
-			$this->startTimer(__FUNCTION__);
+			$this->startTimer(__FUNCTION__, $key);
 			$result = parent::increment($key, $value);
-			$this->stopTimer(__FUNCTION__);
+			$this->stopTimer(__FUNCTION__, $key);
 			return $result;
 		}
 		
@@ -95,9 +95,9 @@
 			$action, $key, $value, $expires = Cache::EXPIRES_MEDIUM
 		)
 		{
-			$this->startTimer(__FUNCTION__.$action);
+			$this->startTimer(__FUNCTION__.$action, $key);
 			$result = parent::store($action, $key, $value, $expires);
-			$this->stopTimer(__FUNCTION__.$action);
+			$this->stopTimer(__FUNCTION__.$action, $key);
 			return $result;
 			
 		}
@@ -110,7 +110,7 @@
 			return $result;
 		}
 
-		protected function startTimer($methodName)
+		protected function startTimer($methodName, $key = '')
 		{
 			PinbaClient::me()->timerStart(
 				'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$methodName,
@@ -121,11 +121,10 @@
 			);
 		}
 
-		protected function stopTimer($methodName)
+		protected function stopTimer($methodName, $key = '')
 		{
 			PinbaClient::me()->timerStop(
 				'pecl_memcached_'.$this->host.'_'.$this->port.'_'.$methodName
 			);
 		}
 	}
-?>
