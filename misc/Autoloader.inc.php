@@ -37,7 +37,7 @@
 			if ($cache && ($cache[ONPHP_CLASS_CACHE_CHECKSUM] <> $checksum))
 				$cache = null;
 			
-			if (!$cache) {
+			if (!$cache && is_readable($cacheFile)) {
 				try {
 					$cache = unserialize(@file_get_contents($cacheFile, false));
 				} catch (BaseException $e) {
