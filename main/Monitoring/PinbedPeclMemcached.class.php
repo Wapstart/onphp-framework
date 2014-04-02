@@ -23,7 +23,7 @@
 			$connectTimeout = PeclMemcached::DEFAULT_TIMEOUT
 		)
 		{
-			return new self($host, $port);
+			return new self($host, $port, $connectTimeout);
 		}
 		
 		public function append($key, $data)
@@ -69,7 +69,7 @@
 		public function cas($key, $value, $expires = Cache::EXPIRES_MEDIUM, $cas)
 		{
 			$this->startTimer(__FUNCTION__);
-			parent::cas($key, $value, $expires, $cas);
+			$result = parent::cas($key, $value, $expires, $cas);
 			$this->stopTimer(__FUNCTION__);
 			return $result;
 		}
@@ -105,8 +105,9 @@
 		protected function connect()
 		{
 			$this->startTimer(__FUNCTION__);
-			parent::connect();
+			$result = parent::connect();
 			$this->stopTimer(__FUNCTION__);
+			return $result;
 		}
 
 		protected function startTimer($methodName)
