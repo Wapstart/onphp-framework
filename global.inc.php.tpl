@@ -18,7 +18,7 @@
 		if (isset($backTrace[0]['file']) && isset($backTrace[0]['line'])) {
 			$traceMessage .= ' in '.$backTrace[0]['file'].' on line '.$backTrace[0]['line'];
 		}
-		error_log($traceMessage . PHP_EOL . print_r($backTrace, true));
+		//error_log($traceMessage . PHP_EOL . print_r($backTrace, true));
 		throw new BaseException($string, $code);
 	}
 	
@@ -28,7 +28,7 @@
 		if (!class_exists('ClassNotFoundException', false)) {
 			final class ClassNotFoundException extends BaseException {  }
 		}
-		error_log("Class not Found: {$classname}");
+		//error_log("Class not Found: {$classname}");
 
 		throw new ClassNotFoundException(sprintf('"%s": "%s"', $classname, $message));
 	}
