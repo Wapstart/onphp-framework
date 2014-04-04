@@ -49,7 +49,7 @@
 
 		private $body		= null;
 
-		protected $isRobot;
+		protected $isRobot  = null;
 		
 		/**
 		 * @return HttpRequest
