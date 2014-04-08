@@ -13,12 +13,26 @@
 	
 	function error2Exception($code, $string, $file, $line, $context)
 	{
-		$traceMessage = $string;
-		$backTrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-		if (isset($backTrace[0]['file']) && isset($backTrace[0]['line'])) {
-			$traceMessage .= ' in '.$backTrace[0]['file'].' on line '.$backTrace[0]['line'];
+		$isException = false;
+		$exceptionPatterns = array(
+			'/geoip_country_code_by_name.+Host.+not found/iu',
+		);
+		foreach ($exceptionPatterns as $pattern) {
+			if (preg_match($pattern, $string)) {
+				$isException = true;
+				break;
+			}
 		}
-		//error_log($traceMessage . PHP_EOL . print_r($backTrace, true));
+
+		if (!$isException) {
+			$traceMessage = $string;
+			$backTrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+			if (isset($backTrace[0]['file']) && isset($backTrace[0]['line'])) {
+				$traceMessage .= ' in '.$backTrace[0]['file'].' on line '.$backTrace[0]['line'];
+			}
+			//error_log($traceMessage . PHP_EOL . print_r($backTrace, true));
+		}
+
 		throw new BaseException($string, $code);
 	}
 	
@@ -32,7 +46,7 @@
 
 		throw new ClassNotFoundException(sprintf('"%s": "%s"', $classname, $message));
 	}
-	
+
 	// file extensions
 	define('EXT_CLASS', '.class.php');
 	define('EXT_TPL', '.tpl.html');
