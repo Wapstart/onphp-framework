@@ -56,7 +56,7 @@
 		**/
 		public function finalize()
 		{
-			$this->= true;
+			$this->final = true;
 			
 			return $this;
 		}
