@@ -48,6 +48,8 @@
 		private $url		= null;
 
 		private $body		= null;
+
+		protected $isRobot  = null;
 		
 		/**
 		 * @return HttpRequest
@@ -413,6 +415,31 @@
 		{
 			$this->body = $body;
 			return $this;
+		}
+
+		/**
+		 * $robotPattern should be synced with nginx config
+		 * @return bool
+		 */
+		public function isRobot()
+		{
+			if (is_null($this->isRobot)) {
+				$serverVars = $this->getServer();
+				if (!empty($serverVars['HTTP_USER_AGENT'])) {
+					$this->isRobot = false;
+					$robotPattern = "/(google|yahoo|slurp|msn.*bot|bot|detectURL"
+						."|AcadiaUniversityWebCensusClient|Accoona|Apexoo|appie"
+						."|crawler|spider|Bigsearch|BlogBridge|Bloglines|Drupal"
+						."|Teoma|inktomi|Infoseek|Scooter|Lycos|findlinks"
+						."|Alltheweb|Exalead|Xenu|curl|yandex|StackRambler"
+						."|Roboo|ia_archiver|test\/1.0|check_http|SWeb.ru|dvget"
+						."|Wget|PHP|Mail.Ru\/\d.\d|Mail.Ru%2F\d.\d)/iu";
+					if (preg_match($robotPattern, $serverVars['HTTP_USER_AGENT'])) {
+						$this->isRobot = true;
+					}
+				}
+			}
+			return $this->isRobot;
 		}
 	}
 ?>
