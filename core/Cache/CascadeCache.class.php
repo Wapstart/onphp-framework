@@ -45,6 +45,16 @@
 			$this->remotePeer = $remotePeer;
 			$this->cacheStrategy = $cacheStrategy;
 		}
+
+		public function getLocalPeer()
+		{
+			return $this->localPeer;
+		}
+
+		public function getRemotePeer()
+		{
+			return $this->remotePeer;
+		}
 		
 		/**
 		 * @return CascadeCache
